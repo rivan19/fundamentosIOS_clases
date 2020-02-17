@@ -12,7 +12,7 @@ class HouseViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.title = "House"
         // Do any additional setup after loading the view.
     }
 

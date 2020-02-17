@@ -19,6 +19,7 @@ class RateViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.confirmButton.layer.cornerRadius = 4.0
+        self.title = "Rate"
         
     }
     
@@ -26,12 +27,19 @@ class RateViewController: UIViewController {
         // code
         print("Aceptando!!")
         
+        
     }
     
     @IBAction func fire(_ sender: Any) {
         print("Fire!! \(sender)")
         let valueInt = Int(slider.value)
         self.rateLabel.text = "\(valueInt)"
+    }
+    
+    
+    @IBAction func close(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+        //self.navigationController?.popViewController(animated: true)
     }
     
 }

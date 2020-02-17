@@ -9,6 +9,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EpisodeViewController" customModule="AppOfThrones" customModuleProvider="target">
             <connections>
+                <outlet property="tableView" destination="9pZ-Qh-QIE" id="Nus-or-KEg"/>
                 <outlet property="view" destination="iN0-l3-epB" id="bcK-tj-9by"/>
             </connections>
         </placeholder>
@@ -33,27 +34,22 @@
                         <segment title="8"/>
                     </segments>
                 </segmentedControl>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tOD-0v-oYh">
-                    <rect key="frame" x="20" y="763" width="374" height="67"/>
-                    <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="9pZ-Qh-QIE">
+                    <rect key="frame" x="20" y="139" width="374" height="723"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="67" id="8tO-QZ-pEX"/>
+                        <constraint firstAttribute="width" constant="374" id="ksT-m1-FYS"/>
                     </constraints>
-                    <state key="normal" title="Rate">
-                        <color key="titleColor" red="0.98039215690000003" green="0.96078431369999995" blue="0.89411764709999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </state>
-                    <connections>
-                        <action selector="openRate:" destination="-1" eventType="touchUpInside" id="qz6-F0-5SN"/>
-                    </connections>
-                </button>
+                </tableView>
             </subviews>
             <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
             <constraints>
-                <constraint firstItem="tOD-0v-oYh" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="6XD-nx-Qur"/>
                 <constraint firstItem="oh3-GC-hOr" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="LPf-hJ-vX4"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="tOD-0v-oYh" secondAttribute="bottom" constant="32" id="MT8-QT-sY1"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="tOD-0v-oYh" secondAttribute="trailing" constant="20" id="NcS-I1-hDX"/>
+                <constraint firstItem="9pZ-Qh-QIE" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="QIc-TO-3ZJ"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="9pZ-Qh-QIE" secondAttribute="trailing" constant="20" id="SOU-Fm-NuN"/>
+                <constraint firstItem="9pZ-Qh-QIE" firstAttribute="top" secondItem="oh3-GC-hOr" secondAttribute="bottom" constant="21" id="cd3-zQ-wqy"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="oh3-GC-hOr" secondAttribute="trailing" constant="20" id="k8V-6a-2sN"/>
+                <constraint firstItem="9pZ-Qh-QIE" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="mj0-ZU-Fcv"/>
                 <constraint firstItem="oh3-GC-hOr" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="44" id="mt5-do-kWL"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>

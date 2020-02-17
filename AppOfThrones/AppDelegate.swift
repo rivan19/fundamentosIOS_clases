@@ -11,11 +11,16 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
+    // MARK: - Mis Estados
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        //Lo más ligero posible. Para que arranque rápido.
+        
         return true
+    }
+    
+    func applicationDidEnterBackground(_ application: UIApplication) {
     }
 
     // MARK: UISceneSession Lifecycle

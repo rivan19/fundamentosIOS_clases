@@ -1,10 +1,78 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13142" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12042"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="EpisodeTableViewCell" id="lsJ-UY-uMw" customClass="EpisodeTableViewCell" customModule="AppOfThrones" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="123"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="lsJ-UY-uMw" id="4iG-0c-6Xs">
+                <rect key="frame" x="0.0" y="0.0" width="414" height="123"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="TEB-Gf-3lB">
+                        <rect key="frame" x="20" y="20" width="140" height="83"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="83" id="S6w-3A-5FO"/>
+                            <constraint firstAttribute="width" constant="140" id="fTl-ln-CO2"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vlQ-QJ-2Is">
+                        <rect key="frame" x="168" y="20" width="226" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="RHZ-jG-SVa"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2NR-VN-T1z">
+                        <rect key="frame" x="168" y="49" width="226" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="BDO-TL-ajO"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bzR-ob-5dd">
+                        <rect key="frame" x="168" y="73" width="100" height="30"/>
+                        <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="30" id="N0R-TZ-XDk"/>
+                        </constraints>
+                        <state key="normal" title="RATE">
+                            <color key="titleColor" red="0.98039215690000003" green="0.96078431369999995" blue="0.89411764709999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </state>
+                    </button>
+                </subviews>
+                <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
+                <constraints>
+                    <constraint firstItem="vlQ-QJ-2Is" firstAttribute="leading" secondItem="TEB-Gf-3lB" secondAttribute="trailing" constant="8" id="1sQ-Ip-Bcl"/>
+                    <constraint firstItem="vlQ-QJ-2Is" firstAttribute="top" secondItem="4iG-0c-6Xs" secondAttribute="top" constant="20" id="2gn-2X-TwO"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="bzR-ob-5dd" secondAttribute="trailing" constant="126" id="Fxi-H7-TgJ"/>
+                    <constraint firstItem="bzR-ob-5dd" firstAttribute="top" secondItem="2NR-VN-T1z" secondAttribute="bottom" constant="3" id="MXT-Bv-vTd"/>
+                    <constraint firstItem="TEB-Gf-3lB" firstAttribute="leading" secondItem="4iG-0c-6Xs" secondAttribute="leading" constant="20" id="Nb0-gt-P13"/>
+                    <constraint firstItem="bzR-ob-5dd" firstAttribute="leading" secondItem="TEB-Gf-3lB" secondAttribute="trailing" constant="8" id="PX2-ZH-OSX"/>
+                    <constraint firstItem="2NR-VN-T1z" firstAttribute="top" secondItem="vlQ-QJ-2Is" secondAttribute="bottom" constant="8" id="gNF-7A-LVv"/>
+                    <constraint firstAttribute="trailing" secondItem="vlQ-QJ-2Is" secondAttribute="trailing" constant="20" id="huA-Xg-0Ah"/>
+                    <constraint firstAttribute="trailing" secondItem="2NR-VN-T1z" secondAttribute="trailing" constant="20" id="jjN-is-jg9"/>
+                    <constraint firstItem="TEB-Gf-3lB" firstAttribute="centerY" secondItem="4iG-0c-6Xs" secondAttribute="centerY" id="qqr-Jm-1D5"/>
+                    <constraint firstItem="2NR-VN-T1z" firstAttribute="leading" secondItem="TEB-Gf-3lB" secondAttribute="trailing" constant="8" id="yqp-g5-rCI"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="date" destination="2NR-VN-T1z" id="Ail-9S-BLh"/>
+                <outlet property="rateButton" destination="bzR-ob-5dd" id="3OA-e6-Qtk"/>
+                <outlet property="thumb" destination="TEB-Gf-3lB" id="Z7q-gl-rhv"/>
+                <outlet property="title" destination="vlQ-QJ-2Is" id="io5-TO-teO"/>
+            </connections>
+            <point key="canvasLocation" x="147.82608695652175" y="27.790178571428569"/>
+        </tableViewCell>
     </objects>
 </document>

@@ -17,7 +17,39 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
-        guard let _ = (scene as? UIWindowScene) else { return }
+        
+        let episodeViewController = EpisodeViewController()
+        let castViewController = CastViewController()
+        let houseViewController = HouseViewController()
+        let settingsViewController = SettingsViewController()
+        
+        
+        episodeViewController.tabBarItem = UITabBarItem.init(title: "Seasons", image: UIImage.init(systemName: "film.fill"), tag: 0)
+        castViewController.tabBarItem = UITabBarItem.init(title: "Cast", image: UIImage.init(systemName: "person.3.fill"), tag: 1)
+        houseViewController.tabBarItem = UITabBarItem.init(title: "House", image: UIImage.init(systemName: "shield.lefthalf.fill"), tag: 2)
+        settingsViewController.tabBarItem = UITabBarItem.init(title: "Settings", image: UIImage.init(systemName: "gear"), tag: 3)
+        
+        let navigationEpisodeViewController = UINavigationController.init(rootViewController: episodeViewController)
+        let navigationCastViewController = UINavigationController.init(rootViewController: castViewController)
+        let navigationHouseViewController = UINavigationController.init(rootViewController: houseViewController)
+        let navigationSettingsViewController = UINavigationController.init(rootViewController: settingsViewController)
+        
+        let tabBarController = UITabBarController()
+        tabBarController.viewControllers = [navigationEpisodeViewController, navigationCastViewController, navigationHouseViewController, navigationSettingsViewController]
+        
+        tabBarController.tabBar.barStyle = .black
+        tabBarController.tabBar.tintColor = UIColor.init(red: 235/255.0, green: 172/255.0, blue: 38/255.0, alpha: 1.0)
+        
+        UINavigationBar.appearance().overrideUserInterfaceStyle = .dark
+        UINavigationBar.appearance().tintColor = UIColor.init(red: 235/255.0, green: 172/255.0, blue: 38/255.0, alpha: 1.0)
+        
+        
+        guard let windowScene = (scene as? UIWindowScene) else { return }
+        
+        window = UIWindow(frame: windowScene.coordinateSpace.bounds)
+        window?.windowScene = windowScene
+        window?.rootViewController = tabBarController
+        window?.makeKeyAndVisible()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
