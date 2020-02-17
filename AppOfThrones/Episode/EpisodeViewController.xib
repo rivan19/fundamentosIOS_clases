@@ -36,7 +36,7 @@
                 </segmentedControl>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="9pZ-Qh-QIE">
                     <rect key="frame" x="20" y="139" width="374" height="723"/>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="374" id="ksT-m1-FYS"/>
                     </constraints>

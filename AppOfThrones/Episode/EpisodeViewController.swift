@@ -12,7 +12,7 @@ class EpisodeViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     @IBOutlet weak var tableView: UITableView!
     
-    var episodes: [Episode] = [Episode.init(id: 1, name: "Winter Is Comming", date: "April 17, 2011", image: "episodeTest", episode: 1, season: 1, overview: "Jon Arryn, the Hand of the King, is dead. King Robert...")]
+    var episodes: [Episode] = [Episode.init(id: 1, name: "Winter Is Comming", date: "April 17, 2011", image: "historia-de-la-casa-Targaryen", episode: 1, season: 1, overview: "Jon Arryn, the Hand of the King, is dead. King Robert...")]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,6 +62,8 @@ class EpisodeViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "EpisodeTableViewCell", for: indexPath) as? EpisodeTableViewCell {
+            let ep = episodes[indexPath.row]
+            cell.setEpisode(ep)
             return cell
         }
         
