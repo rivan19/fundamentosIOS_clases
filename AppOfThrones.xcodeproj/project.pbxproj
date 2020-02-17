@@ -7,13 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4A587FEF23FB319D00313FD9 /* EpisodeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A587FEE23FB319D00313FD9 /* EpisodeTableViewCell.swift */; };
+		4A587FF123FB31DD00313FD9 /* EpisodeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A587FF023FB31DD00313FD9 /* EpisodeTableViewCell.xib */; };
 		4A5C445523F34BC800C88983 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5C445423F34BC800C88983 /* AppDelegate.swift */; };
 		4A5C445723F34BC800C88983 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5C445623F34BC800C88983 /* SceneDelegate.swift */; };
-		4A5C445923F34BC800C88983 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5C445823F34BC800C88983 /* ViewController.swift */; };
-		4A5C445C23F34BC800C88983 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A5C445A23F34BC800C88983 /* Main.storyboard */; };
 		4A5C445E23F34BCB00C88983 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A5C445D23F34BCB00C88983 /* Assets.xcassets */; };
 		4A5C446123F34BCB00C88983 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A5C445F23F34BCB00C88983 /* LaunchScreen.storyboard */; };
 		4A5C446C23F34BCC00C88983 /* AppOfThronesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5C446B23F34BCC00C88983 /* AppOfThronesTests.swift */; };
+		4A5C447723F35E4300C88983 /* RateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5C447623F35E4300C88983 /* RateViewController.swift */; };
+		4A5C447923F35E8F00C88983 /* RateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A5C447823F35E8F00C88983 /* RateViewController.xib */; };
+		4A5C447B23F5F03400C88983 /* EpisodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5C447A23F5F03400C88983 /* EpisodeViewController.swift */; };
+		4A5C447D23F5F04800C88983 /* EpisodeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A5C447C23F5F04800C88983 /* EpisodeViewController.xib */; };
+		4A5C448023F5F41600C88983 /* Episode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5C447F23F5F41600C88983 /* Episode.swift */; };
+		4A5C448423F6021100C88983 /* CastViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5C448323F6021100C88983 /* CastViewController.swift */; };
+		4A5C448623F6021F00C88983 /* CastViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A5C448523F6021F00C88983 /* CastViewController.xib */; };
+		4A5C448823F602A300C88983 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5C448723F602A300C88983 /* SettingsViewController.swift */; };
+		4A5C448A23F602BA00C88983 /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A5C448923F602BA00C88983 /* SettingsViewController.xib */; };
+		4A5C449023F605C700C88983 /* HouseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5C448E23F605C700C88983 /* HouseViewController.swift */; };
+		4A5C449123F605C700C88983 /* HouseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A5C448F23F605C700C88983 /* HouseViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,17 +38,28 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4A587FEE23FB319D00313FD9 /* EpisodeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeTableViewCell.swift; sourceTree = "<group>"; };
+		4A587FF023FB31DD00313FD9 /* EpisodeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EpisodeTableViewCell.xib; sourceTree = "<group>"; };
 		4A5C445123F34BC800C88983 /* AppOfThrones.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppOfThrones.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A5C445423F34BC800C88983 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4A5C445623F34BC800C88983 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		4A5C445823F34BC800C88983 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		4A5C445B23F34BC800C88983 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4A5C445D23F34BCB00C88983 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4A5C446023F34BCB00C88983 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4A5C446223F34BCB00C88983 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4A5C446723F34BCC00C88983 /* AppOfThronesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AppOfThronesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A5C446B23F34BCC00C88983 /* AppOfThronesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppOfThronesTests.swift; sourceTree = "<group>"; };
 		4A5C446D23F34BCC00C88983 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4A5C447623F35E4300C88983 /* RateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateViewController.swift; sourceTree = "<group>"; };
+		4A5C447823F35E8F00C88983 /* RateViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RateViewController.xib; sourceTree = "<group>"; };
+		4A5C447A23F5F03400C88983 /* EpisodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeViewController.swift; sourceTree = "<group>"; };
+		4A5C447C23F5F04800C88983 /* EpisodeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EpisodeViewController.xib; sourceTree = "<group>"; };
+		4A5C447F23F5F41600C88983 /* Episode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Episode.swift; sourceTree = "<group>"; };
+		4A5C448323F6021100C88983 /* CastViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastViewController.swift; sourceTree = "<group>"; };
+		4A5C448523F6021F00C88983 /* CastViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CastViewController.xib; sourceTree = "<group>"; };
+		4A5C448723F602A300C88983 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		4A5C448923F602BA00C88983 /* SettingsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
+		4A5C448E23F605C700C88983 /* HouseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HouseViewController.swift; sourceTree = "<group>"; };
+		4A5C448F23F605C700C88983 /* HouseViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HouseViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,10 +101,14 @@
 		4A5C445323F34BC800C88983 /* AppOfThrones */ = {
 			isa = PBXGroup;
 			children = (
+				4A5C448D23F605A700C88983 /* House */,
+				4A5C448223F601FE00C88983 /* Setting */,
+				4A5C448123F601E100C88983 /* Cast */,
+				4A5C447E23F5F3EE00C88983 /* Modelo */,
+				4A5C448B23F603B400C88983 /* Rate */,
+				4A5C448C23F603BF00C88983 /* Episode */,
 				4A5C445423F34BC800C88983 /* AppDelegate.swift */,
 				4A5C445623F34BC800C88983 /* SceneDelegate.swift */,
-				4A5C445823F34BC800C88983 /* ViewController.swift */,
-				4A5C445A23F34BC800C88983 /* Main.storyboard */,
 				4A5C445D23F34BCB00C88983 /* Assets.xcassets */,
 				4A5C445F23F34BCB00C88983 /* LaunchScreen.storyboard */,
 				4A5C446223F34BCB00C88983 /* Info.plist */,
@@ -97,6 +123,61 @@
 				4A5C446D23F34BCC00C88983 /* Info.plist */,
 			);
 			path = AppOfThronesTests;
+			sourceTree = "<group>";
+		};
+		4A5C447E23F5F3EE00C88983 /* Modelo */ = {
+			isa = PBXGroup;
+			children = (
+				4A5C447F23F5F41600C88983 /* Episode.swift */,
+			);
+			path = Modelo;
+			sourceTree = "<group>";
+		};
+		4A5C448123F601E100C88983 /* Cast */ = {
+			isa = PBXGroup;
+			children = (
+				4A5C448323F6021100C88983 /* CastViewController.swift */,
+				4A5C448523F6021F00C88983 /* CastViewController.xib */,
+			);
+			path = Cast;
+			sourceTree = "<group>";
+		};
+		4A5C448223F601FE00C88983 /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				4A5C448723F602A300C88983 /* SettingsViewController.swift */,
+				4A5C448923F602BA00C88983 /* SettingsViewController.xib */,
+			);
+			path = Setting;
+			sourceTree = "<group>";
+		};
+		4A5C448B23F603B400C88983 /* Rate */ = {
+			isa = PBXGroup;
+			children = (
+				4A5C447623F35E4300C88983 /* RateViewController.swift */,
+				4A5C447823F35E8F00C88983 /* RateViewController.xib */,
+			);
+			path = Rate;
+			sourceTree = "<group>";
+		};
+		4A5C448C23F603BF00C88983 /* Episode */ = {
+			isa = PBXGroup;
+			children = (
+				4A5C447A23F5F03400C88983 /* EpisodeViewController.swift */,
+				4A5C447C23F5F04800C88983 /* EpisodeViewController.xib */,
+				4A587FEE23FB319D00313FD9 /* EpisodeTableViewCell.swift */,
+				4A587FF023FB31DD00313FD9 /* EpisodeTableViewCell.xib */,
+			);
+			path = Episode;
+			sourceTree = "<group>";
+		};
+		4A5C448D23F605A700C88983 /* House */ = {
+			isa = PBXGroup;
+			children = (
+				4A5C448E23F605C700C88983 /* HouseViewController.swift */,
+				4A5C448F23F605C700C88983 /* HouseViewController.xib */,
+			);
+			path = House;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -180,9 +261,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A5C447923F35E8F00C88983 /* RateViewController.xib in Resources */,
+				4A5C448A23F602BA00C88983 /* SettingsViewController.xib in Resources */,
 				4A5C446123F34BCB00C88983 /* LaunchScreen.storyboard in Resources */,
+				4A5C448623F6021F00C88983 /* CastViewController.xib in Resources */,
+				4A5C449123F605C700C88983 /* HouseViewController.xib in Resources */,
+				4A587FF123FB31DD00313FD9 /* EpisodeTableViewCell.xib in Resources */,
+				4A5C447D23F5F04800C88983 /* EpisodeViewController.xib in Resources */,
 				4A5C445E23F34BCB00C88983 /* Assets.xcassets in Resources */,
-				4A5C445C23F34BC800C88983 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -200,9 +286,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4A5C445923F34BC800C88983 /* ViewController.swift in Sources */,
+				4A587FEF23FB319D00313FD9 /* EpisodeTableViewCell.swift in Sources */,
+				4A5C447723F35E4300C88983 /* RateViewController.swift in Sources */,
 				4A5C445523F34BC800C88983 /* AppDelegate.swift in Sources */,
+				4A5C447B23F5F03400C88983 /* EpisodeViewController.swift in Sources */,
+				4A5C448023F5F41600C88983 /* Episode.swift in Sources */,
 				4A5C445723F34BC800C88983 /* SceneDelegate.swift in Sources */,
+				4A5C448823F602A300C88983 /* SettingsViewController.swift in Sources */,
+				4A5C448423F6021100C88983 /* CastViewController.swift in Sources */,
+				4A5C449023F605C700C88983 /* HouseViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -225,14 +317,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		4A5C445A23F34BC800C88983 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				4A5C445B23F34BC800C88983 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		4A5C445F23F34BCB00C88983 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
