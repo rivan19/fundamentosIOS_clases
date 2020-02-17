@@ -12,6 +12,7 @@
 		4A587FF323FB487F00313FD9 /* CastTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A587FF223FB487F00313FD9 /* CastTableViewCell.swift */; };
 		4A587FF523FB489300313FD9 /* CastTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A587FF423FB489300313FD9 /* CastTableViewCell.xib */; };
 		4A587FF723FB4B5C00313FD9 /* Cast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A587FF623FB4B5C00313FD9 /* Cast.swift */; };
+		4A587FF923FB513D00313FD9 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A587FF823FB513D00313FD9 /* DataController.swift */; };
 		4A5C445523F34BC800C88983 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5C445423F34BC800C88983 /* AppDelegate.swift */; };
 		4A5C445723F34BC800C88983 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5C445623F34BC800C88983 /* SceneDelegate.swift */; };
 		4A5C445E23F34BCB00C88983 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A5C445D23F34BCB00C88983 /* Assets.xcassets */; };
@@ -46,6 +47,7 @@
 		4A587FF223FB487F00313FD9 /* CastTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastTableViewCell.swift; sourceTree = "<group>"; };
 		4A587FF423FB489300313FD9 /* CastTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CastTableViewCell.xib; sourceTree = "<group>"; };
 		4A587FF623FB4B5C00313FD9 /* Cast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cast.swift; sourceTree = "<group>"; };
+		4A587FF823FB513D00313FD9 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		4A5C445123F34BC800C88983 /* AppOfThrones.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppOfThrones.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A5C445423F34BC800C88983 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4A5C445623F34BC800C88983 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -118,6 +120,7 @@
 				4A5C445D23F34BCB00C88983 /* Assets.xcassets */,
 				4A5C445F23F34BCB00C88983 /* LaunchScreen.storyboard */,
 				4A5C446223F34BCB00C88983 /* Info.plist */,
+				4A587FF823FB513D00313FD9 /* DataController.swift */,
 			);
 			path = AppOfThrones;
 			sourceTree = "<group>";
@@ -297,6 +300,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4A587FEF23FB319D00313FD9 /* EpisodeTableViewCell.swift in Sources */,
+				4A587FF923FB513D00313FD9 /* DataController.swift in Sources */,
 				4A5C447723F35E4300C88983 /* RateViewController.swift in Sources */,
 				4A5C445523F34BC800C88983 /* AppDelegate.swift in Sources */,
 				4A5C447B23F5F03400C88983 /* EpisodeViewController.swift in Sources */,

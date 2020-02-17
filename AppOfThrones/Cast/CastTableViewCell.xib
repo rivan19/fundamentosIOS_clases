@@ -49,10 +49,10 @@
                         <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rtV-e7-j9b">
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rtV-e7-j9b">
                         <rect key="frame" x="361" y="0.0" width="53" height="153"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="33" id="rS4-tC-qgy"/>
+                            <constraint firstAttribute="width" constant="53" id="rS4-tC-qgy"/>
                         </constraints>
                         <color key="tintColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <state key="normal" image="heart" catalog="system"/>
@@ -60,7 +60,7 @@
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="pgh-Ma-Y5P" secondAttribute="trailing" id="0kY-aB-nNa"/>
-                    <constraint firstAttribute="trailing" secondItem="rtV-e7-j9b" secondAttribute="trailing" constant="20" symbolic="YES" id="3vx-Yk-VMf"/>
+                    <constraint firstAttribute="trailing" secondItem="rtV-e7-j9b" secondAttribute="trailing" id="3vx-Yk-VMf"/>
                     <constraint firstItem="pgh-Ma-Y5P" firstAttribute="top" secondItem="NYB-2N-eR1" secondAttribute="top" constant="27" id="FaP-gn-j6j"/>
                     <constraint firstItem="pW0-e7-JOr" firstAttribute="trailing" secondItem="NYB-2N-eR1" secondAttribute="trailingMargin" id="T7I-lY-ldf"/>
                     <constraint firstItem="uLg-s7-FAt" firstAttribute="leading" secondItem="CJi-90-VY6" secondAttribute="trailing" constant="8" id="UKV-HE-OVB"/>
@@ -68,8 +68,8 @@
                     <constraint firstItem="uLg-s7-FAt" firstAttribute="trailing" secondItem="NYB-2N-eR1" secondAttribute="trailingMargin" id="iOG-Yn-ktg"/>
                     <constraint firstItem="pW0-e7-JOr" firstAttribute="leading" secondItem="CJi-90-VY6" secondAttribute="trailing" constant="8" id="kL7-kU-oPL"/>
                     <constraint firstItem="CJi-90-VY6" firstAttribute="leading" secondItem="NYB-2N-eR1" secondAttribute="leading" constant="20" id="oM5-T7-2bo"/>
-                    <constraint firstAttribute="bottom" secondItem="rtV-e7-j9b" secondAttribute="bottom" constant="20" symbolic="YES" id="omA-Xf-KVK"/>
-                    <constraint firstItem="rtV-e7-j9b" firstAttribute="top" secondItem="NYB-2N-eR1" secondAttribute="top" constant="20" symbolic="YES" id="rKb-VJ-whD"/>
+                    <constraint firstAttribute="bottom" secondItem="rtV-e7-j9b" secondAttribute="bottom" constant="11" id="omA-Xf-KVK"/>
+                    <constraint firstItem="rtV-e7-j9b" firstAttribute="top" secondItem="NYB-2N-eR1" secondAttribute="top" id="rKb-VJ-whD"/>
                     <constraint firstItem="CJi-90-VY6" firstAttribute="centerY" secondItem="NYB-2N-eR1" secondAttribute="centerY" id="rmG-iO-l5R"/>
                     <constraint firstItem="uLg-s7-FAt" firstAttribute="top" secondItem="pgh-Ma-Y5P" secondAttribute="bottom" constant="8" id="rmw-7C-ij5"/>
                     <constraint firstAttribute="bottomMargin" secondItem="pW0-e7-JOr" secondAttribute="bottom" constant="16" id="vKr-le-Z5Q"/>
