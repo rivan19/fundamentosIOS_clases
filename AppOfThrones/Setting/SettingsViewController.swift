@@ -14,4 +14,12 @@ class SettingsViewController: UIViewController {
         super.viewDidLoad()
         self.title = "Settings"
     }
+    
+    
+    @IBAction func cleanFavorite(_ sender: Any) {
+        DataController.shared.cleanFavorite()
+        
+        let noteName = Notification.Name(rawValue: "DidFavoritesUpdated")
+        NotificationCenter.default.post(name: noteName, object: nil)
+    }
 }

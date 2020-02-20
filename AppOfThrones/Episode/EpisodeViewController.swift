@@ -8,15 +8,41 @@
 
 import UIKit
 
-class EpisodeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, RateViewCellDelegate {
+class EpisodeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, RateViewCellDelegate, FavoriteDelegate {
+    
+    
     
     @IBOutlet weak var tableView: UITableView!
     
-    var episodes: [Episode] = [Episode.init(id: 1, name: "Winter Is Comming", date: "April 17, 2011", image: "historia-de-la-casa-Targaryen", episode: 1, season: 1, overview: "Jon Arryn, the Hand of the King, is dead. King Robert..."), Episode.init(id: 2, name: "Winter Is Comming Too", date: "April 17, 2011", image: "historia-de-la-casa-Targaryen 2", episode: 2, season: 1, overview: "Jon Arryn, the Hand of the King, is dead. King Robert...")]
+    var episodes: [Episode] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        self.setupNotifications()
+        self.setupData(1)
+    }
+    
+    deinit {
+        let noteName = Notification.Name(rawValue: "DidFavoritesUpdated")
+        NotificationCenter.default.removeObserver(self, name: noteName, object: nil)
+    }
+    
+    func setupData(_ seasonNumber: Int){
+        if let pathURL = Bundle.main.url(forResource: "season_\(seasonNumber)", withExtension: "json"){
+            do {
+                let data = try Data.init(contentsOf: pathURL)
+                let decoder = JSONDecoder()
+                episodes = try decoder.decode([Episode].self, from: data)
+                self.tableView.reloadData()
+
+            } catch {
+                fatalError(error.localizedDescription)
+            }
+        } else {
+            fatalError("Could not build the path url for Episode")
+        }
+        
     }
     
     func setupUI() {
@@ -29,7 +55,18 @@ class EpisodeViewController: UIViewController, UITableViewDelegate, UITableViewD
         self.tableView.dataSource = self
     }
     
+    func setupNotifications() {
+        let noteName = Notification.Name(rawValue: "DidFavoritesUpdated")
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.didFavoriteChanged), name: noteName, object: nil)
+    }
+    
     // MARK: - EpisodeTableViewCellDelegate
+    @objc func didFavoriteChanged() {
+        self.tableView.reloadData()
+    }
+    
+    
     func didRateChanged() {
         self.tableView.reloadData()
     }
@@ -59,6 +96,7 @@ class EpisodeViewController: UIViewController, UITableViewDelegate, UITableViewD
         if let cell = tableView.dequeueReusableCell(withIdentifier: "EpisodeTableViewCell", for: indexPath) as? EpisodeTableViewCell {
             let ep = episodes[indexPath.row]
             cell.setEpisode(ep)
+            cell.delegate = self
             
             cell.rateBlock = { () -> Void in
                 let rateViewController = RateViewController.init(withEpisode: ep)
@@ -71,6 +109,13 @@ class EpisodeViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
         
         fatalError("Could not create the Episode cell")
+    }
+    
+    // MARK: - IBActions
+    
+    @IBAction func seasonChanged(_ sender: UISegmentedControl) {
+        let seasonNumber = sender.selectedSegmentIndex + 1
+        setupData(seasonNumber)
     }
     
 }

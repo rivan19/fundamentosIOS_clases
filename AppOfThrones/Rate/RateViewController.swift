@@ -37,7 +37,7 @@ class RateViewController: UIViewController {
         super.viewDidLoad()
         self.confirmButton.layer.cornerRadius = 4.0
         self.title = "Rate"
-        
+        self.imageView.image = UIImage.init(named: episode?.image ?? "")
     }
     
     @IBAction func accept() {

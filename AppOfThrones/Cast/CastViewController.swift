@@ -8,18 +8,49 @@
 
 import UIKit
 
-class CastViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class CastViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, FavoriteDelegate {
+    
+    
+    
+    
     
     @IBOutlet weak var tableView: UITableView!
     
-    let cast : [Cast] = [Cast.init(id: 1, avatar: "Emilia Clarke", fullName: "Eilia Clarke", role: "Daenerys Targaryen", episode: 73, birth: "1986-10-23", placeBirth: "London, England UK"), Cast.init(id: 2, avatar: "Kit Harington", fullName: "Kit Harington", role: "Jon Snow", episode: 73, birth: "1986-12-26", placeBirth: "Worscester")]
+    var cast : [Cast] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        self.setupNotifications()
+        self.setupData()
+    }
+    
+    deinit {
+        let noteName = Notification.Name(rawValue: "DidFavoritesUpdated")
+        NotificationCenter.default.removeObserver(self, name: noteName, object: nil)
     }
     
     // MARK: - Setup
+    
+    func setupData(){
+        if let pathURL = Bundle.main.url(forResource: "cast", withExtension: "json")
+        {
+            do {
+                
+                let data = try Data.init(contentsOf: pathURL)
+                let decoder = JSONDecoder()
+                cast = try decoder.decode([Cast].self, from: data)
+                
+                tableView.reloadData()
+            } catch {
+                fatalError(error.localizedDescription)
+            }
+        } else {
+            fatalError("Could not build the path url for Cast")
+        }
+        
+    }
+    
     func setupUI() {
         self.title = "Cast"
         let nib = UINib.init(nibName: "CastTableViewCell", bundle: nil)
@@ -27,6 +58,17 @@ class CastViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         tableView.delegate = self
         tableView.dataSource = self
+    }
+    
+    func setupNotifications() {
+        let noteName = Notification.Name(rawValue: "DidFavoritesUpdated")
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.didFavoriteChanged), name: noteName, object: nil)
+    }
+    
+    // MARK: - CastTablaViewCellDelegate
+    @objc func didFavoriteChanged() {
+        self.tableView.reloadData()
     }
     
     // MARK: - UITableViewDelegate
@@ -55,6 +97,7 @@ class CastViewController: UIViewController, UITableViewDelegate, UITableViewData
         if let cell = tableView.dequeueReusableCell(withIdentifier: "CastTableViewCell", for: indexPath) as? CastTableViewCell {
             let actor = cast[indexPath.row]
             cell.setCast(actor)
+            cell.delegate = self
             return cell
         }
         

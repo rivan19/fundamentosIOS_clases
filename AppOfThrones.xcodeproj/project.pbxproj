@@ -17,6 +17,16 @@
 		4A587FFD23FC639500313FD9 /* HouseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A587FFC23FC639500313FD9 /* HouseTableViewCell.swift */; };
 		4A587FFF23FC63A500313FD9 /* HouseTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A587FFE23FC63A500313FD9 /* HouseTableViewCell.xib */; };
 		4A58800123FC825A00313FD9 /* Rating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A58800023FC825A00313FD9 /* Rating.swift */; };
+		4A58802323FF31D400313FD9 /* season_4.json in Resources */ = {isa = PBXBuildFile; fileRef = 4A58801923FF31D400313FD9 /* season_4.json */; };
+		4A58802423FF31D400313FD9 /* season_8.json in Resources */ = {isa = PBXBuildFile; fileRef = 4A58801A23FF31D400313FD9 /* season_8.json */; };
+		4A58802523FF31D400313FD9 /* season_5.json in Resources */ = {isa = PBXBuildFile; fileRef = 4A58801B23FF31D400313FD9 /* season_5.json */; };
+		4A58802623FF31D400313FD9 /* season_2.json in Resources */ = {isa = PBXBuildFile; fileRef = 4A58801C23FF31D400313FD9 /* season_2.json */; };
+		4A58802723FF31D400313FD9 /* cast.json in Resources */ = {isa = PBXBuildFile; fileRef = 4A58801D23FF31D400313FD9 /* cast.json */; };
+		4A58802823FF31D400313FD9 /* season_3.json in Resources */ = {isa = PBXBuildFile; fileRef = 4A58801E23FF31D400313FD9 /* season_3.json */; };
+		4A58802923FF31D400313FD9 /* houses.json in Resources */ = {isa = PBXBuildFile; fileRef = 4A58801F23FF31D400313FD9 /* houses.json */; };
+		4A58802A23FF31D400313FD9 /* season_1.json in Resources */ = {isa = PBXBuildFile; fileRef = 4A58802023FF31D400313FD9 /* season_1.json */; };
+		4A58802B23FF31D400313FD9 /* season_6.json in Resources */ = {isa = PBXBuildFile; fileRef = 4A58802123FF31D400313FD9 /* season_6.json */; };
+		4A58802C23FF31D400313FD9 /* season_7.json in Resources */ = {isa = PBXBuildFile; fileRef = 4A58802223FF31D400313FD9 /* season_7.json */; };
 		4A5C445523F34BC800C88983 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5C445423F34BC800C88983 /* AppDelegate.swift */; };
 		4A5C445723F34BC800C88983 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5C445623F34BC800C88983 /* SceneDelegate.swift */; };
 		4A5C445E23F34BCB00C88983 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A5C445D23F34BCB00C88983 /* Assets.xcassets */; };
@@ -56,6 +66,16 @@
 		4A587FFC23FC639500313FD9 /* HouseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HouseTableViewCell.swift; sourceTree = "<group>"; };
 		4A587FFE23FC63A500313FD9 /* HouseTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HouseTableViewCell.xib; sourceTree = "<group>"; };
 		4A58800023FC825A00313FD9 /* Rating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rating.swift; sourceTree = "<group>"; };
+		4A58801923FF31D400313FD9 /* season_4.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = season_4.json; sourceTree = "<group>"; };
+		4A58801A23FF31D400313FD9 /* season_8.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = season_8.json; sourceTree = "<group>"; };
+		4A58801B23FF31D400313FD9 /* season_5.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = season_5.json; sourceTree = "<group>"; };
+		4A58801C23FF31D400313FD9 /* season_2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = season_2.json; sourceTree = "<group>"; };
+		4A58801D23FF31D400313FD9 /* cast.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = cast.json; sourceTree = "<group>"; };
+		4A58801E23FF31D400313FD9 /* season_3.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = season_3.json; sourceTree = "<group>"; };
+		4A58801F23FF31D400313FD9 /* houses.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = houses.json; sourceTree = "<group>"; };
+		4A58802023FF31D400313FD9 /* season_1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = season_1.json; sourceTree = "<group>"; };
+		4A58802123FF31D400313FD9 /* season_6.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = season_6.json; sourceTree = "<group>"; };
+		4A58802223FF31D400313FD9 /* season_7.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = season_7.json; sourceTree = "<group>"; };
 		4A5C445123F34BC800C88983 /* AppOfThrones.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppOfThrones.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A5C445423F34BC800C88983 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4A5C445623F34BC800C88983 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -96,6 +116,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4A58801823FF31D400313FD9 /* JSON */ = {
+			isa = PBXGroup;
+			children = (
+				4A58801923FF31D400313FD9 /* season_4.json */,
+				4A58801A23FF31D400313FD9 /* season_8.json */,
+				4A58801B23FF31D400313FD9 /* season_5.json */,
+				4A58801C23FF31D400313FD9 /* season_2.json */,
+				4A58801D23FF31D400313FD9 /* cast.json */,
+				4A58801E23FF31D400313FD9 /* season_3.json */,
+				4A58801F23FF31D400313FD9 /* houses.json */,
+				4A58802023FF31D400313FD9 /* season_1.json */,
+				4A58802123FF31D400313FD9 /* season_6.json */,
+				4A58802223FF31D400313FD9 /* season_7.json */,
+			);
+			path = JSON;
+			sourceTree = "<group>";
+		};
 		4A5C444823F34BC800C88983 = {
 			isa = PBXGroup;
 			children = (
@@ -117,6 +154,7 @@
 		4A5C445323F34BC800C88983 /* AppOfThrones */ = {
 			isa = PBXGroup;
 			children = (
+				4A58801823FF31D400313FD9 /* JSON */,
 				4A5C448D23F605A700C88983 /* House */,
 				4A5C448223F601FE00C88983 /* Setting */,
 				4A5C448123F601E100C88983 /* Cast */,
@@ -285,13 +323,23 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A58802823FF31D400313FD9 /* season_3.json in Resources */,
 				4A5C447923F35E8F00C88983 /* RateViewController.xib in Resources */,
+				4A58802423FF31D400313FD9 /* season_8.json in Resources */,
 				4A5C448A23F602BA00C88983 /* SettingsViewController.xib in Resources */,
+				4A58802A23FF31D400313FD9 /* season_1.json in Resources */,
+				4A58802623FF31D400313FD9 /* season_2.json in Resources */,
 				4A587FF523FB489300313FD9 /* CastTableViewCell.xib in Resources */,
 				4A5C446123F34BCB00C88983 /* LaunchScreen.storyboard in Resources */,
+				4A58802923FF31D400313FD9 /* houses.json in Resources */,
 				4A5C448623F6021F00C88983 /* CastViewController.xib in Resources */,
+				4A58802723FF31D400313FD9 /* cast.json in Resources */,
+				4A58802323FF31D400313FD9 /* season_4.json in Resources */,
 				4A5C449123F605C700C88983 /* HouseViewController.xib in Resources */,
+				4A58802B23FF31D400313FD9 /* season_6.json in Resources */,
+				4A58802523FF31D400313FD9 /* season_5.json in Resources */,
 				4A587FFF23FC63A500313FD9 /* HouseTableViewCell.xib in Resources */,
+				4A58802C23FF31D400313FD9 /* season_7.json in Resources */,
 				4A587FF123FB31DD00313FD9 /* EpisodeTableViewCell.xib in Resources */,
 				4A5C447D23F5F04800C88983 /* EpisodeViewController.xib in Resources */,
 				4A5C445E23F34BCB00C88983 /* Assets.xcassets in Resources */,

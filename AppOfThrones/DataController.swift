@@ -8,6 +8,14 @@
 
 import Foundation
 
+protocol FavoriteDelegate: class {
+    func didFavoriteChanged()
+}
+
+protocol Identifiable {
+    var id: Int {get}
+}
+
 class DataController {
     
     //var rating: [Rating] = []
@@ -16,6 +24,30 @@ class DataController {
     private init() {}
     
     private var rating: [Rating] = []
+    private var favorite: [Int] = []
+    
+    func isFavorite<T: Identifiable>(_ value: T) -> Bool {
+        return favorite.contains(value.id)
+    }
+    
+    func addFavorite<T: Identifiable>(_ value: T) {
+        if self.isFavorite(value) == false {
+            favorite.append(value.id)
+        }
+    }
+    
+    func removeFavorite<T: Identifiable>(_ value: T){
+        if let index = favorite.firstIndex(of: value.id) {
+            favorite.remove(at: index)
+        }
+    }
+    
+    
+    // MARK: - Favorite
+    
+    func cleanFavorite() {
+        favorite = []
+    }
     
     // MARK: - Rating
     func rateEpisode(_ episode: Episode, value: Double) {
@@ -40,4 +72,6 @@ class DataController {
         
         return filtered.first
     }
+    
+    
 }

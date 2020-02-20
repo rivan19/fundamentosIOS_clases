@@ -21,9 +21,11 @@ class EpisodeTableViewCell: UITableViewCell {
     @IBOutlet weak var star03: UIImageView!
     @IBOutlet weak var star04: UIImageView!
     @IBOutlet weak var star05: UIImageView!
+    @IBOutlet weak var heartButton: UIButton!
     
     var rateBlock: (() -> Void)?
-    
+    private var episode:Episode?
+    var delegate: FavoriteDelegate?
     
     override func awakeFromNib() {
         //se ejecuta cuando se ha cogido la celda se instancia
@@ -35,7 +37,26 @@ class EpisodeTableViewCell: UITableViewCell {
         
     }
     
+    @IBAction func fireFavorite(_ sender: Any) {
+        if let episode = self.episode {
+            if DataController.shared.isFavorite(episode){
+                DataController.shared.removeFavorite(episode)
+            } else {
+                DataController.shared.addFavorite(episode)
+            }
+            delegate?.didFavoriteChanged()
+        }
+        
+    }
+    
+    
     func setEpisode(_ episode: Episode) {
+        self.episode = episode
+        let heartImageNamed = DataController.shared.isFavorite(episode) ? "heart.fill" : "heart"
+        
+        let heartImage = UIImage.init(systemName: heartImageNamed)
+        self.heartButton.setImage(heartImage, for: .normal)
+        
         thumb.image = UIImage.init(named: episode.image ?? "")
         title.text = episode.name
         date.text = episode.date

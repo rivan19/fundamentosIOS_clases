@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Episode {
+class Episode: Identifiable, Codable {
     
     var id: Int
     var name: String?
