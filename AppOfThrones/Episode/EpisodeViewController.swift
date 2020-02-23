@@ -98,6 +98,14 @@ class EpisodeViewController: UIViewController, UITableViewDelegate, UITableViewD
             cell.setEpisode(ep)
             cell.delegate = self
             
+            cell.selectCell = { () -> Void in
+                let episode = self.episodes[indexPath.row]
+                let episodeDetailViewController = EpisodeDetailViewController.init(withEpisode: episode)
+                let navigationDetailController = UINavigationController.init(rootViewController: episodeDetailViewController)
+                
+                self.present(navigationDetailController, animated: true, completion: nil)
+            }
+            
             cell.rateBlock = { () -> Void in
                 let rateViewController = RateViewController.init(withEpisode: ep)
                 let navigationController = UINavigationController.init(rootViewController: rateViewController)
@@ -109,6 +117,14 @@ class EpisodeViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
         
         fatalError("Could not create the Episode cell")
+    }
+    
+    func tableView(_ tableView: UITableView, didHighlightRowAt indexPath: IndexPath) {
+        print("La fila \(indexPath.row), y sección \(indexPath.section)")
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("didSelectRowAt")
     }
     
     // MARK: - IBActions

@@ -43,6 +43,8 @@
 		4A5C448A23F602BA00C88983 /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A5C448923F602BA00C88983 /* SettingsViewController.xib */; };
 		4A5C449023F605C700C88983 /* HouseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5C448E23F605C700C88983 /* HouseViewController.swift */; };
 		4A5C449123F605C700C88983 /* HouseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A5C448F23F605C700C88983 /* HouseViewController.xib */; };
+		D5C7AE0B2402E0A300F1796C /* EpisodeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5C7AE0A2402E0A300F1796C /* EpisodeDetailViewController.swift */; };
+		D5C7AE0D2402E10B00F1796C /* EpisodeDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D5C7AE0C2402E10B00F1796C /* EpisodeDetailViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,6 +98,8 @@
 		4A5C448923F602BA00C88983 /* SettingsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
 		4A5C448E23F605C700C88983 /* HouseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HouseViewController.swift; sourceTree = "<group>"; };
 		4A5C448F23F605C700C88983 /* HouseViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HouseViewController.xib; sourceTree = "<group>"; };
+		D5C7AE0A2402E0A300F1796C /* EpisodeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeDetailViewController.swift; sourceTree = "<group>"; };
+		D5C7AE0C2402E10B00F1796C /* EpisodeDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EpisodeDetailViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -227,6 +231,8 @@
 				4A5C447C23F5F04800C88983 /* EpisodeViewController.xib */,
 				4A587FEE23FB319D00313FD9 /* EpisodeTableViewCell.swift */,
 				4A587FF023FB31DD00313FD9 /* EpisodeTableViewCell.xib */,
+				D5C7AE0A2402E0A300F1796C /* EpisodeDetailViewController.swift */,
+				D5C7AE0C2402E10B00F1796C /* EpisodeDetailViewController.xib */,
 			);
 			path = Episode;
 			sourceTree = "<group>";
@@ -334,6 +340,7 @@
 				4A58802923FF31D400313FD9 /* houses.json in Resources */,
 				4A5C448623F6021F00C88983 /* CastViewController.xib in Resources */,
 				4A58802723FF31D400313FD9 /* cast.json in Resources */,
+				D5C7AE0D2402E10B00F1796C /* EpisodeDetailViewController.xib in Resources */,
 				4A58802323FF31D400313FD9 /* season_4.json in Resources */,
 				4A5C449123F605C700C88983 /* HouseViewController.xib in Resources */,
 				4A58802B23FF31D400313FD9 /* season_6.json in Resources */,
@@ -365,6 +372,7 @@
 				4A587FFB23FC621300313FD9 /* House.swift in Sources */,
 				4A5C447723F35E4300C88983 /* RateViewController.swift in Sources */,
 				4A5C445523F34BC800C88983 /* AppDelegate.swift in Sources */,
+				D5C7AE0B2402E0A300F1796C /* EpisodeDetailViewController.swift in Sources */,
 				4A5C447B23F5F03400C88983 /* EpisodeViewController.swift in Sources */,
 				4A5C448023F5F41600C88983 /* Episode.swift in Sources */,
 				4A5C445723F34BC800C88983 /* SceneDelegate.swift in Sources */,

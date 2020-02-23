@@ -27,42 +27,64 @@ class DataController {
     private var favorite: [Int] = []
     private var favoriteC: [Int] = []
     
-    func getArrayFavorite<T: Identifiable>(_ value: T) -> [Int] {
+    private enum Kind: String {
+        case cast = "C"
+        case episode = "E"
+        case other = "O"
+    }
+    
+    private func getKindFavorite<T: Identifiable>(_ value: T) -> Kind {
         if let _ = value as? Cast {
-            return favoriteC
+            return Kind.cast
         }
         else if let _ = value as? Episode {
-            return favorite
+            return Kind.episode
         } else {
+            return Kind.other
+        }
+    }
+    
+    func getArrayFavorite<T: Identifiable>(_ value: T) -> [Int] {
+        
+        switch getKindFavorite(value) {
+        case .cast:
+            return favoriteC
+        case .episode:
+            return favorite
+        default:
             return favorite
         }
     }
     
     func isFavorite<T: Identifiable>(_ value: T) -> Bool {
-        /*if let _ = value as? Cast {
-            return favoriteC.contains(value.id)
-        }
-        else if let _ = value as? Episode {
-            return favorite.contains(value.id)
-        }
-        else
-        {
-            return favorite.contains(value.id)
-        }*/
-        
         return getArrayFavorite(value).contains(value.id)
-        
     }
     
     func addFavorite<T: Identifiable>(_ value: T) {
         if self.isFavorite(value) == false {
-            favorite.append(value.id)
+            switch getKindFavorite(value) {
+            case .cast:
+                favoriteC.append(value.id)
+            case .episode:
+                favorite.append(value.id)
+            default:
+                favorite.append(value.id)
+            }
         }
     }
     
     func removeFavorite<T: Identifiable>(_ value: T){
-        if let index = favorite.firstIndex(of: value.id) {
-            favorite.remove(at: index)
+        if let index = getArrayFavorite(value).firstIndex(of: value.id) {
+            if self.isFavorite(value) == true {
+                switch getKindFavorite(value) {
+                case .cast:
+                    favoriteC.remove(at: index)
+                case .episode:
+                    favorite.remove(at: index)
+                default:
+                    favorite.remove(at: index)
+                }
+            }
         }
     }
     
@@ -71,6 +93,7 @@ class DataController {
     
     func cleanFavorite() {
         favorite = []
+        favoriteC = []
     }
     
     // MARK: - Rating

@@ -24,6 +24,8 @@ class EpisodeTableViewCell: UITableViewCell {
     @IBOutlet weak var heartButton: UIButton!
     
     var rateBlock: (() -> Void)?
+    var selectCell: (() -> Void)?
+    
     private var episode:Episode?
     var delegate: FavoriteDelegate?
     
@@ -37,6 +39,7 @@ class EpisodeTableViewCell: UITableViewCell {
         
     }
     
+    
     @IBAction func fireFavorite(_ sender: Any) {
         if let episode = self.episode {
             if DataController.shared.isFavorite(episode){
@@ -46,7 +49,6 @@ class EpisodeTableViewCell: UITableViewCell {
             }
             delegate?.didFavoriteChanged()
         }
-        
     }
     
     
@@ -75,6 +77,10 @@ class EpisodeTableViewCell: UITableViewCell {
     
     @IBAction func fireRate(_ sender: Any) {
         self.rateBlock?()
+    }
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.selectCell?()
     }
     
     // MARK: - Rating
