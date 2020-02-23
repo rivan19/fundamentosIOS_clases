@@ -25,9 +25,33 @@ class DataController {
     
     private var rating: [Rating] = []
     private var favorite: [Int] = []
+    private var favoriteC: [Int] = []
+    
+    func getArrayFavorite<T: Identifiable>(_ value: T) -> [Int] {
+        if let _ = value as? Cast {
+            return favoriteC
+        }
+        else if let _ = value as? Episode {
+            return favorite
+        } else {
+            return favorite
+        }
+    }
     
     func isFavorite<T: Identifiable>(_ value: T) -> Bool {
-        return favorite.contains(value.id)
+        /*if let _ = value as? Cast {
+            return favoriteC.contains(value.id)
+        }
+        else if let _ = value as? Episode {
+            return favorite.contains(value.id)
+        }
+        else
+        {
+            return favorite.contains(value.id)
+        }*/
+        
+        return getArrayFavorite(value).contains(value.id)
+        
     }
     
     func addFavorite<T: Identifiable>(_ value: T) {
