@@ -43,10 +43,16 @@
 		4A5C448A23F602BA00C88983 /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A5C448923F602BA00C88983 /* SettingsViewController.xib */; };
 		4A5C449023F605C700C88983 /* HouseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5C448E23F605C700C88983 /* HouseViewController.swift */; };
 		4A5C449123F605C700C88983 /* HouseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A5C448F23F605C700C88983 /* HouseViewController.xib */; };
+		D52817B42405C28E00DE361E /* ImageCastDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D52817B32405C28E00DE361E /* ImageCastDetailTableViewCell.swift */; };
+		D52817B62405C29D00DE361E /* ImageCastDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D52817B52405C29D00DE361E /* ImageCastDetailTableViewCell.xib */; };
+		D52817B82405C40000DE361E /* CastDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D52817B72405C40000DE361E /* CastDetailTableViewCell.swift */; };
+		D52817BA2405C42300DE361E /* CastDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D52817B92405C42300DE361E /* CastDetailTableViewCell.xib */; };
 		D5C062C42404836400B46FC2 /* ImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5C062C32404836400B46FC2 /* ImageTableViewCell.swift */; };
 		D5C062C62404837000B46FC2 /* ImageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D5C062C52404837000B46FC2 /* ImageTableViewCell.xib */; };
 		D5C062C8240489BE00B46FC2 /* EpisodeDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5C062C7240489BE00B46FC2 /* EpisodeDetailTableViewCell.swift */; };
 		D5C062CA240489CA00B46FC2 /* EpisodeDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D5C062C9240489CA00B46FC2 /* EpisodeDetailTableViewCell.xib */; };
+		D5C062CC2405A94F00B46FC2 /* CastDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5C062CB2405A94F00B46FC2 /* CastDetailViewController.swift */; };
+		D5C062CE2405A96900B46FC2 /* CastDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D5C062CD2405A96900B46FC2 /* CastDetailViewController.xib */; };
 		D5C7AE0B2402E0A300F1796C /* EpisodeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5C7AE0A2402E0A300F1796C /* EpisodeDetailViewController.swift */; };
 		D5C7AE0D2402E10B00F1796C /* EpisodeDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D5C7AE0C2402E10B00F1796C /* EpisodeDetailViewController.xib */; };
 /* End PBXBuildFile section */
@@ -102,10 +108,16 @@
 		4A5C448923F602BA00C88983 /* SettingsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
 		4A5C448E23F605C700C88983 /* HouseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HouseViewController.swift; sourceTree = "<group>"; };
 		4A5C448F23F605C700C88983 /* HouseViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HouseViewController.xib; sourceTree = "<group>"; };
+		D52817B32405C28E00DE361E /* ImageCastDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCastDetailTableViewCell.swift; sourceTree = "<group>"; };
+		D52817B52405C29D00DE361E /* ImageCastDetailTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageCastDetailTableViewCell.xib; sourceTree = "<group>"; };
+		D52817B72405C40000DE361E /* CastDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastDetailTableViewCell.swift; sourceTree = "<group>"; };
+		D52817B92405C42300DE361E /* CastDetailTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CastDetailTableViewCell.xib; sourceTree = "<group>"; };
 		D5C062C32404836400B46FC2 /* ImageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTableViewCell.swift; sourceTree = "<group>"; };
 		D5C062C52404837000B46FC2 /* ImageTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageTableViewCell.xib; sourceTree = "<group>"; };
 		D5C062C7240489BE00B46FC2 /* EpisodeDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeDetailTableViewCell.swift; sourceTree = "<group>"; };
 		D5C062C9240489CA00B46FC2 /* EpisodeDetailTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EpisodeDetailTableViewCell.xib; sourceTree = "<group>"; };
+		D5C062CB2405A94F00B46FC2 /* CastDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastDetailViewController.swift; sourceTree = "<group>"; };
+		D5C062CD2405A96900B46FC2 /* CastDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CastDetailViewController.xib; sourceTree = "<group>"; };
 		D5C7AE0A2402E0A300F1796C /* EpisodeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeDetailViewController.swift; sourceTree = "<group>"; };
 		D5C7AE0C2402E10B00F1796C /* EpisodeDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EpisodeDetailViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -210,6 +222,12 @@
 				4A5C448523F6021F00C88983 /* CastViewController.xib */,
 				4A587FF223FB487F00313FD9 /* CastTableViewCell.swift */,
 				4A587FF423FB489300313FD9 /* CastTableViewCell.xib */,
+				D5C062CB2405A94F00B46FC2 /* CastDetailViewController.swift */,
+				D5C062CD2405A96900B46FC2 /* CastDetailViewController.xib */,
+				D52817B32405C28E00DE361E /* ImageCastDetailTableViewCell.swift */,
+				D52817B52405C29D00DE361E /* ImageCastDetailTableViewCell.xib */,
+				D52817B72405C40000DE361E /* CastDetailTableViewCell.swift */,
+				D52817B92405C42300DE361E /* CastDetailTableViewCell.xib */,
 			);
 			path = Cast;
 			sourceTree = "<group>";
@@ -343,13 +361,16 @@
 			files = (
 				4A58802823FF31D400313FD9 /* season_3.json in Resources */,
 				4A5C447923F35E8F00C88983 /* RateViewController.xib in Resources */,
+				D5C062CE2405A96900B46FC2 /* CastDetailViewController.xib in Resources */,
 				4A58802423FF31D400313FD9 /* season_8.json in Resources */,
 				4A5C448A23F602BA00C88983 /* SettingsViewController.xib in Resources */,
+				D52817B62405C29D00DE361E /* ImageCastDetailTableViewCell.xib in Resources */,
 				4A58802A23FF31D400313FD9 /* season_1.json in Resources */,
 				D5C062CA240489CA00B46FC2 /* EpisodeDetailTableViewCell.xib in Resources */,
 				4A58802623FF31D400313FD9 /* season_2.json in Resources */,
 				4A587FF523FB489300313FD9 /* CastTableViewCell.xib in Resources */,
 				4A5C446123F34BCB00C88983 /* LaunchScreen.storyboard in Resources */,
+				D52817BA2405C42300DE361E /* CastDetailTableViewCell.xib in Resources */,
 				4A58802923FF31D400313FD9 /* houses.json in Resources */,
 				4A5C448623F6021F00C88983 /* CastViewController.xib in Resources */,
 				4A58802723FF31D400313FD9 /* cast.json in Resources */,
@@ -381,14 +402,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D5C062CC2405A94F00B46FC2 /* CastDetailViewController.swift in Sources */,
 				4A587FEF23FB319D00313FD9 /* EpisodeTableViewCell.swift in Sources */,
 				4A587FF923FB513D00313FD9 /* DataController.swift in Sources */,
 				4A587FFB23FC621300313FD9 /* House.swift in Sources */,
 				4A5C447723F35E4300C88983 /* RateViewController.swift in Sources */,
 				D5C062C8240489BE00B46FC2 /* EpisodeDetailTableViewCell.swift in Sources */,
+				D52817B82405C40000DE361E /* CastDetailTableViewCell.swift in Sources */,
 				4A5C445523F34BC800C88983 /* AppDelegate.swift in Sources */,
 				D5C7AE0B2402E0A300F1796C /* EpisodeDetailViewController.swift in Sources */,
 				4A5C447B23F5F03400C88983 /* EpisodeViewController.swift in Sources */,
+				D52817B42405C28E00DE361E /* ImageCastDetailTableViewCell.swift in Sources */,
 				4A5C448023F5F41600C88983 /* Episode.swift in Sources */,
 				4A5C445723F34BC800C88983 /* SceneDelegate.swift in Sources */,
 				4A587FF323FB487F00313FD9 /* CastTableViewCell.swift in Sources */,

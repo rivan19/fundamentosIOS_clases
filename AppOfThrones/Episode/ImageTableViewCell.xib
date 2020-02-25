@@ -15,15 +15,15 @@
                 <rect key="frame" x="0.0" y="0.0" width="468" height="208"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aI0-FM-NFK">
-                        <rect key="frame" x="0.0" y="-44" width="468" height="286"/>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aI0-FM-NFK">
+                        <rect key="frame" x="0.0" y="0.0" width="468" height="208"/>
                     </imageView>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="aI0-FM-NFK" firstAttribute="top" secondItem="XLv-uM-I44" secondAttribute="topMargin" constant="-55" id="3Cz-M4-1hI"/>
-                    <constraint firstItem="aI0-FM-NFK" firstAttribute="leading" secondItem="XLv-uM-I44" secondAttribute="leadingMargin" constant="-20" id="Gyu-tu-gBd"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="aI0-FM-NFK" secondAttribute="bottom" constant="-45" id="Li1-hI-DRq"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="aI0-FM-NFK" secondAttribute="trailing" constant="-20" id="jzs-Tm-Zab"/>
+                    <constraint firstItem="aI0-FM-NFK" firstAttribute="leading" secondItem="XLv-uM-I44" secondAttribute="leading" id="Y3g-GI-XjU"/>
+                    <constraint firstAttribute="trailing" secondItem="aI0-FM-NFK" secondAttribute="trailing" id="ZL0-UT-fzg"/>
+                    <constraint firstAttribute="bottom" secondItem="aI0-FM-NFK" secondAttribute="bottom" id="dCU-sw-2F9"/>
+                    <constraint firstItem="aI0-FM-NFK" firstAttribute="top" secondItem="XLv-uM-I44" secondAttribute="top" id="zDJ-SP-93p"/>
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>

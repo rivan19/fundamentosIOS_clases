@@ -35,7 +35,7 @@ class CastTableViewCell: UITableViewCell {
         self.heart.setImage(heartImage, for: .normal)
         
         self.episodes.text = "\(cast.episode ?? 0) episodes"
-        self.name.text = cast.fullName
+        self.name.text = cast.fullname
         self.role.text = cast.role
         self.avatar.image = UIImage.init(named: cast.avatar ?? "")
         

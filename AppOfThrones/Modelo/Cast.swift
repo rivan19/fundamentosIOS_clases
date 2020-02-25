@@ -11,7 +11,7 @@ import Foundation
 struct Cast: Identifiable, Codable {
     var id: Int
     var avatar: String?
-    var fullName: String?
+    var fullname: String?
     var role: String?
     var episode: Int?
     var birth: String?

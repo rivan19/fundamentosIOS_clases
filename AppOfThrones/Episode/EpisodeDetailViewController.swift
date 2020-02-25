@@ -98,7 +98,7 @@ class EpisodeDetailViewController: UIViewController, UITableViewDelegate, UITabl
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.row {
         case 0:
-            return 208
+            return 250
         default:
             return 500
         }
