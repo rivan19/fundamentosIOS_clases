@@ -44,6 +44,10 @@ class DataController {
         }
     }
     
+    func getImageHeart<T: Identifiable>(_ value: T) -> String {
+        return self.isFavorite(value) ? "heart.fill" : "heart"
+    }
+    
     func getArrayFavorite<T: Identifiable>(_ value: T) -> [Int] {
         
         switch getKindFavorite(value) {

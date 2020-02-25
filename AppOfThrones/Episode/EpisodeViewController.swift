@@ -16,6 +16,8 @@ class EpisodeViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     var episodes: [Episode] = []
     
+    //var reloadTable: (() -> Void)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
@@ -99,9 +101,36 @@ class EpisodeViewController: UIViewController, UITableViewDelegate, UITableViewD
             cell.delegate = self
             
             cell.selectCell = { () -> Void in
-                let episode = self.episodes[indexPath.row]
-                let episodeDetailViewController = EpisodeDetailViewController.init(withEpisode: episode)
+                
+                let heartImageNamed = DataController.shared.getImageHeart(ep)
+                
+                let rightButton = UIButton.init(frame: CGRect.init(x: 0, y: 0, width: 30, height: 30))
+                rightButton.setImage(UIImage.init(systemName: heartImageNamed), for: .normal)
+                rightButton.tintColor = .red
+                
+                let leftButton = UIButton.init(frame: CGRect.init(x: 0, y: 0, width: 30, height: 30))
+                leftButton.setImage(UIImage(systemName: "xmark.circle.fill"), for: .normal)
+                leftButton.tintColor = .orange
+                
+                let episodeDetailViewController = EpisodeDetailViewController.init(withEpisode: ep)
+                
                 let navigationDetailController = UINavigationController.init(rootViewController: episodeDetailViewController)
+                
+                episodeDetailViewController.title = ep.name ?? ""
+                
+                rightButton.addTarget(episodeDetailViewController.self, action: #selector(episodeDetailViewController.heartButtonAction), for: .touchUpInside)
+                
+                let rightButtonBar = UIBarButtonItem.init(customView: rightButton)
+                
+                leftButton.addTarget(episodeDetailViewController.self, action: #selector(episodeDetailViewController.closeViewController), for: .touchUpInside)
+                
+                let leftButtonBar = UIBarButtonItem.init(customView: leftButton)
+                
+                episodeDetailViewController.navigationItem.rightBarButtonItem = rightButtonBar
+                
+                episodeDetailViewController.navigationItem.leftBarButtonItem = leftButtonBar
+                
+                episodeDetailViewController.delegate = self
                 
                 self.present(navigationDetailController, animated: true, completion: nil)
             }

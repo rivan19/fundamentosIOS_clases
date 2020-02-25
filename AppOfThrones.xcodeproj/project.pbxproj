@@ -43,6 +43,10 @@
 		4A5C448A23F602BA00C88983 /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A5C448923F602BA00C88983 /* SettingsViewController.xib */; };
 		4A5C449023F605C700C88983 /* HouseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5C448E23F605C700C88983 /* HouseViewController.swift */; };
 		4A5C449123F605C700C88983 /* HouseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A5C448F23F605C700C88983 /* HouseViewController.xib */; };
+		D5C062C42404836400B46FC2 /* ImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5C062C32404836400B46FC2 /* ImageTableViewCell.swift */; };
+		D5C062C62404837000B46FC2 /* ImageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D5C062C52404837000B46FC2 /* ImageTableViewCell.xib */; };
+		D5C062C8240489BE00B46FC2 /* EpisodeDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5C062C7240489BE00B46FC2 /* EpisodeDetailTableViewCell.swift */; };
+		D5C062CA240489CA00B46FC2 /* EpisodeDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D5C062C9240489CA00B46FC2 /* EpisodeDetailTableViewCell.xib */; };
 		D5C7AE0B2402E0A300F1796C /* EpisodeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5C7AE0A2402E0A300F1796C /* EpisodeDetailViewController.swift */; };
 		D5C7AE0D2402E10B00F1796C /* EpisodeDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D5C7AE0C2402E10B00F1796C /* EpisodeDetailViewController.xib */; };
 /* End PBXBuildFile section */
@@ -98,6 +102,10 @@
 		4A5C448923F602BA00C88983 /* SettingsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
 		4A5C448E23F605C700C88983 /* HouseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HouseViewController.swift; sourceTree = "<group>"; };
 		4A5C448F23F605C700C88983 /* HouseViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HouseViewController.xib; sourceTree = "<group>"; };
+		D5C062C32404836400B46FC2 /* ImageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTableViewCell.swift; sourceTree = "<group>"; };
+		D5C062C52404837000B46FC2 /* ImageTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageTableViewCell.xib; sourceTree = "<group>"; };
+		D5C062C7240489BE00B46FC2 /* EpisodeDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeDetailTableViewCell.swift; sourceTree = "<group>"; };
+		D5C062C9240489CA00B46FC2 /* EpisodeDetailTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EpisodeDetailTableViewCell.xib; sourceTree = "<group>"; };
 		D5C7AE0A2402E0A300F1796C /* EpisodeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeDetailViewController.swift; sourceTree = "<group>"; };
 		D5C7AE0C2402E10B00F1796C /* EpisodeDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EpisodeDetailViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -233,6 +241,10 @@
 				4A587FF023FB31DD00313FD9 /* EpisodeTableViewCell.xib */,
 				D5C7AE0A2402E0A300F1796C /* EpisodeDetailViewController.swift */,
 				D5C7AE0C2402E10B00F1796C /* EpisodeDetailViewController.xib */,
+				D5C062C32404836400B46FC2 /* ImageTableViewCell.swift */,
+				D5C062C52404837000B46FC2 /* ImageTableViewCell.xib */,
+				D5C062C7240489BE00B46FC2 /* EpisodeDetailTableViewCell.swift */,
+				D5C062C9240489CA00B46FC2 /* EpisodeDetailTableViewCell.xib */,
 			);
 			path = Episode;
 			sourceTree = "<group>";
@@ -334,6 +346,7 @@
 				4A58802423FF31D400313FD9 /* season_8.json in Resources */,
 				4A5C448A23F602BA00C88983 /* SettingsViewController.xib in Resources */,
 				4A58802A23FF31D400313FD9 /* season_1.json in Resources */,
+				D5C062CA240489CA00B46FC2 /* EpisodeDetailTableViewCell.xib in Resources */,
 				4A58802623FF31D400313FD9 /* season_2.json in Resources */,
 				4A587FF523FB489300313FD9 /* CastTableViewCell.xib in Resources */,
 				4A5C446123F34BCB00C88983 /* LaunchScreen.storyboard in Resources */,
@@ -344,6 +357,7 @@
 				4A58802323FF31D400313FD9 /* season_4.json in Resources */,
 				4A5C449123F605C700C88983 /* HouseViewController.xib in Resources */,
 				4A58802B23FF31D400313FD9 /* season_6.json in Resources */,
+				D5C062C62404837000B46FC2 /* ImageTableViewCell.xib in Resources */,
 				4A58802523FF31D400313FD9 /* season_5.json in Resources */,
 				4A587FFF23FC63A500313FD9 /* HouseTableViewCell.xib in Resources */,
 				4A58802C23FF31D400313FD9 /* season_7.json in Resources */,
@@ -371,6 +385,7 @@
 				4A587FF923FB513D00313FD9 /* DataController.swift in Sources */,
 				4A587FFB23FC621300313FD9 /* House.swift in Sources */,
 				4A5C447723F35E4300C88983 /* RateViewController.swift in Sources */,
+				D5C062C8240489BE00B46FC2 /* EpisodeDetailTableViewCell.swift in Sources */,
 				4A5C445523F34BC800C88983 /* AppDelegate.swift in Sources */,
 				D5C7AE0B2402E0A300F1796C /* EpisodeDetailViewController.swift in Sources */,
 				4A5C447B23F5F03400C88983 /* EpisodeViewController.swift in Sources */,
@@ -382,6 +397,7 @@
 				4A5C448423F6021100C88983 /* CastViewController.swift in Sources */,
 				4A58800123FC825A00313FD9 /* Rating.swift in Sources */,
 				4A587FFD23FC639500313FD9 /* HouseTableViewCell.swift in Sources */,
+				D5C062C42404836400B46FC2 /* ImageTableViewCell.swift in Sources */,
 				4A5C449023F605C700C88983 /* HouseViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
