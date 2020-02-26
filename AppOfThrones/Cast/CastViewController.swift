@@ -74,7 +74,6 @@ class CastViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("Se ha hecho tap en la celda con seccion \(indexPath.section) y fila \(indexPath.row)")
         tableView.deselectRow(at: indexPath, animated: true)
     }
     

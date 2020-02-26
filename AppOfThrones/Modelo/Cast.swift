@@ -8,7 +8,26 @@
 
 import Foundation
 
-struct Cast: Identifiable, Codable {
+struct Cast: Identifiable, Codable, CustomStringConvertible, Equatable {
+    
+    // MARK: - Equatable
+    static func == (lhs: Cast, rhs: Cast) -> Bool {
+        lhs.id == rhs.id
+    }
+    
+    // MARK: CustomStringConvertible
+    var description: String {
+        return """
+        id: \(id)
+        avatar: \(avatar ?? "")
+        fullname: \(fullname ?? "")
+        role: \(role ?? "")
+        episode: \(String(describing: episode))
+        birth: \(birth ?? "")
+        placeBirth: \(placeBirth ?? "")
+        """
+    }
+    
     var id: Int
     var avatar: String?
     var fullname: String?

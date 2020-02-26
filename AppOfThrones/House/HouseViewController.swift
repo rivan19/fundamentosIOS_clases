@@ -11,11 +11,12 @@ import UIKit
 class HouseViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var tableView: UITableView!
     
-    let houses: [House] = [House.init(imageName: "Stark", name: "Stark", words: "Winter is Comming", seat: "Winterfall"), House.init(imageName: "Lannister", name: "Lannister", words: "Always pays his debts", seat: "Lannisport")]
+    var houses: [House] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        setupData()
         // Do any additional setup after loading the view.
     }
 
@@ -28,6 +29,25 @@ class HouseViewController: UIViewController, UITableViewDelegate, UITableViewDat
         tableView.dataSource = self
         
     }
+    
+    func setupData()
+    {
+        if let pathURL = Bundle.main.url(forResource: "houses", withExtension: "json")
+        {
+            do {
+                
+                let data = try Data.init(contentsOf: pathURL)
+                let decoder = JSONDecoder()
+                houses = try decoder.decode([House].self, from: data)
+                
+                tableView.reloadData()
+            } catch {
+                fatalError(error.localizedDescription)
+            }
+        } else {
+            fatalError("Could not build the path url for Cast")
+        }
+    }
 
     // MARK: - UITableViewDelegate
     
@@ -35,9 +55,30 @@ class HouseViewController: UIViewController, UITableViewDelegate, UITableViewDat
         return 123
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("Se ha hecho tap en la celda con seccion \(indexPath.section) y fila \(indexPath.row)")
-        tableView.deselectRow(at: indexPath, animated: true)
+    
+    func tableView(_ tableView: UITableView, didHighlightRowAt indexPath: IndexPath) {
+        
+        let hs = houses[indexPath.row]
+        
+        let houseViewController = HouseDetailViewController.init(house: hs)
+        
+        houseViewController.title = hs.name ?? ""
+        
+        let houseNavigationViewController = UINavigationController.init(rootViewController: houseViewController)
+        
+        let leftButton = UIButton.init(frame: CGRect.init(x: 0, y: 0, width: 30, height: 30))
+        
+        leftButton.setImage(UIImage.init(systemName: "xmark.circle.fill"), for: .normal)
+        
+        leftButton.tintColor = .orange
+        
+        leftButton.addTarget(houseViewController.self, action: #selector(houseViewController.close), for: .touchUpInside)
+        
+        let leftBarButton = UIBarButtonItem.init(customView: leftButton)
+        
+        houseViewController.navigationItem.leftBarButtonItem = leftBarButton
+        
+        self.present(houseNavigationViewController, animated: true, completion: nil)
     }
     
     

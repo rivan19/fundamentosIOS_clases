@@ -85,7 +85,7 @@ class CastDetailViewController: UIViewController, UITableViewDelegate, UITableVi
                         cell.birthLabel.text = ""
                     }
                     cell.birthLabel.text = cst.birth
-                    cell.placeBirthLabel.text = cst.placeBirth
+                    cell.placeBithTextView.text = cst.placeBirth
                 }
                 
                 return cell
@@ -101,7 +101,7 @@ class CastDetailViewController: UIViewController, UITableViewDelegate, UITableVi
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.row {
         case 0:
-            return 350
+            return 330
         default:
             return 500
         }

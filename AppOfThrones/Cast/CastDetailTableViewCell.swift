@@ -13,6 +13,7 @@ class CastDetailTableViewCell: UITableViewCell {
     @IBOutlet weak var roleLabel: UILabel!
     @IBOutlet weak var episodeLabel: UILabel!
     @IBOutlet weak var birthLabel: UILabel!
-    @IBOutlet weak var placeBirthLabel: UILabel!
+    @IBOutlet weak var placeBithTextView: UITextView!
+    
     
 }
