@@ -18,10 +18,15 @@ class EpisodeViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     //var reloadTable: (() -> Void)
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        setupNotifications()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        self.setupNotifications()
+        
         self.setupData(1)
     }
     
@@ -31,20 +36,8 @@ class EpisodeViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func setupData(_ seasonNumber: Int){
-        if let pathURL = Bundle.main.url(forResource: "season_\(seasonNumber)", withExtension: "json"){
-            do {
-                let data = try Data.init(contentsOf: pathURL)
-                let decoder = JSONDecoder()
-                episodes = try decoder.decode([Episode].self, from: data)
-                self.tableView.reloadData()
-
-            } catch {
-                fatalError(error.localizedDescription)
-            }
-        } else {
-            fatalError("Could not build the path url for Episode")
-        }
-        
+        episodes = DataController.shared.setupDataEpisode(seasonNumber) ?? []
+        self.tableView.reloadData()
     }
     
     func setupUI() {
@@ -61,6 +54,10 @@ class EpisodeViewController: UIViewController, UITableViewDelegate, UITableViewD
         let noteName = Notification.Name(rawValue: "DidFavoritesUpdated")
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.didFavoriteChanged), name: noteName, object: nil)
+        
+        let rateName = Notification.Name(rawValue: "DidRateUpdated")
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.didRateChanged), name: rateName, object: nil)
     }
     
     // MARK: - EpisodeTableViewCellDelegate
@@ -69,7 +66,7 @@ class EpisodeViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     
-    func didRateChanged() {
+    @objc func didRateChanged() {
         self.tableView.reloadData()
     }
     
@@ -162,5 +159,6 @@ class EpisodeViewController: UIViewController, UITableViewDelegate, UITableViewD
         let seasonNumber = sender.selectedSegmentIndex + 1
         setupData(seasonNumber)
     }
+    
     
 }

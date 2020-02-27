@@ -26,6 +26,20 @@ class DataController {
     private var rating: [Rating] = []
     private var favorite: [Int] = []
     private var favoriteC: [Int] = []
+    private var houses: [House] = []
+    private var casts: [Cast] = []
+    private var episodes: [Episode] = []
+    
+    var castsFavorite: [Cast]? {
+        get {
+            return self.setupDataCastFavorites()
+        }
+    }
+    var episodeFavorite: [Episode]? {
+        get {
+            return self.setupDataEpisodeFavorites()
+        }
+    }
     
     private enum Kind: String {
         case cast = "C"
@@ -124,5 +138,70 @@ class DataController {
         return filtered.first
     }
     
+    // MARK: - SetupData
     
+    func setupDataEpisode(_ seasonNumber: Int) -> [Episode]?{
+        if let pathURL = Bundle.main.url(forResource: "season_\(seasonNumber)", withExtension: "json"){
+            do {
+                let data = try Data.init(contentsOf: pathURL)
+                let decoder = JSONDecoder()
+                episodes = try decoder.decode([Episode].self, from: data)
+                
+                return episodes
+
+            } catch {
+                fatalError(error.localizedDescription)
+            }
+        } else {
+            fatalError("Could not build the path url for Episode")
+        }
+        
+    }
+    
+    func setupDataCast() -> [Cast]?{
+        if let pathURL = Bundle.main.url(forResource: "cast", withExtension: "json")
+        {
+            do {
+                
+                let data = try Data.init(contentsOf: pathURL)
+                let decoder = JSONDecoder()
+                casts = try decoder.decode([Cast].self, from: data)
+                
+                return casts
+                
+            } catch {
+                fatalError(error.localizedDescription)
+            }
+        } else {
+            fatalError("Could not build the path url for Cast")
+        }
+        
+    }
+    
+    func setupDataHouse() -> [House]?
+    {
+        if let pathURL = Bundle.main.url(forResource: "houses", withExtension: "json")
+        {
+            do {
+                
+                let data = try Data.init(contentsOf: pathURL)
+                let decoder = JSONDecoder()
+                houses = try decoder.decode([House].self, from: data)
+                
+                return houses
+            } catch {
+                fatalError(error.localizedDescription)
+            }
+        } else {
+            fatalError("Could not build the path url for Cast")
+        }
+    }
+    
+    func setupDataCastFavorites() -> [Cast]? {
+        return casts.filter({favoriteC.contains($0.id)})
+    }
+    
+    func setupDataEpisodeFavorites() -> [Episode]? {
+        return episodes.filter ({favorite.contains($0.id)})
+    }
 }

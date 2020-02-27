@@ -22,20 +22,28 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let castViewController = CastViewController()
         let houseViewController = HouseViewController()
         let settingsViewController = SettingsViewController()
+        let favoriteViewController = FavoriteViewController()
         
         
         episodeViewController.tabBarItem = UITabBarItem.init(title: "Seasons", image: UIImage.init(systemName: "film.fill"), tag: 0)
         castViewController.tabBarItem = UITabBarItem.init(title: "Cast", image: UIImage.init(systemName: "person.3.fill"), tag: 1)
+        
         houseViewController.tabBarItem = UITabBarItem.init(title: "House", image: UIImage.init(systemName: "shield.lefthalf.fill"), tag: 2)
-        settingsViewController.tabBarItem = UITabBarItem.init(title: "Settings", image: UIImage.init(systemName: "gear"), tag: 3)
+        
+        favoriteViewController.tabBarItem = UITabBarItem.init(title: "Favorites", image: UIImage.init(systemName: "heart"), tag: 3)
+        favoriteViewController.tabBarItem.selectedImage = UIImage.init(systemName: "heart.fill")
+        
+        settingsViewController.tabBarItem = UITabBarItem.init(title: "Settings", image: UIImage.init(systemName: "gear"), tag: 4)
+        
         
         let navigationEpisodeViewController = UINavigationController.init(rootViewController: episodeViewController)
         let navigationCastViewController = UINavigationController.init(rootViewController: castViewController)
         let navigationHouseViewController = UINavigationController.init(rootViewController: houseViewController)
+        let navigationFavoritesViewController = UINavigationController.init(rootViewController: favoriteViewController)
         let navigationSettingsViewController = UINavigationController.init(rootViewController: settingsViewController)
         
         let tabBarController = UITabBarController()
-        tabBarController.viewControllers = [navigationEpisodeViewController, navigationCastViewController, navigationHouseViewController, navigationSettingsViewController]
+        tabBarController.viewControllers = [navigationEpisodeViewController, navigationCastViewController, navigationHouseViewController, navigationFavoritesViewController, navigationSettingsViewController]
         
         tabBarController.tabBar.barStyle = .black
         tabBarController.tabBar.tintColor = UIColor.init(red: 235/255.0, green: 172/255.0, blue: 38/255.0, alpha: 1.0)

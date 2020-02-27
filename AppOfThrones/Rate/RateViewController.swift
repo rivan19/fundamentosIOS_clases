@@ -50,6 +50,9 @@ class RateViewController: UIViewController {
             self.navigationController?.dismiss(animated: true, completion: nil)
         }
         
+        let noteName = Notification.Name(rawValue: "DidRateUpdated")
+        NotificationCenter.default.post(name: noteName, object: nil)
+            
         self.delegate?.didRateChanged()
     }
     

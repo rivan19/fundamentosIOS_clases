@@ -29,21 +29,9 @@ class CastViewController: UIViewController, UITableViewDelegate, UITableViewData
     // MARK: - Setup
     
     func setupData(){
-        if let pathURL = Bundle.main.url(forResource: "cast", withExtension: "json")
-        {
-            do {
-                
-                let data = try Data.init(contentsOf: pathURL)
-                let decoder = JSONDecoder()
-                cast = try decoder.decode([Cast].self, from: data)
-                
-                tableView.reloadData()
-            } catch {
-                fatalError(error.localizedDescription)
-            }
-        } else {
-            fatalError("Could not build the path url for Cast")
-        }
+        
+        cast = DataController.shared.setupDataCast() ?? []
+        tableView.reloadData()
         
     }
     

@@ -32,21 +32,8 @@ class HouseViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     func setupData()
     {
-        if let pathURL = Bundle.main.url(forResource: "houses", withExtension: "json")
-        {
-            do {
-                
-                let data = try Data.init(contentsOf: pathURL)
-                let decoder = JSONDecoder()
-                houses = try decoder.decode([House].self, from: data)
-                
-                tableView.reloadData()
-            } catch {
-                fatalError(error.localizedDescription)
-            }
-        } else {
-            fatalError("Could not build the path url for Cast")
-        }
+        houses = DataController.shared.setupDataHouse() ?? []
+        tableView.reloadData()
     }
 
     // MARK: - UITableViewDelegate
