@@ -23,6 +23,7 @@
                     <constraints>
                         <constraint firstAttribute="height" constant="77" id="7Kf-eJ-7Z4"/>
                     </constraints>
+                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <state key="normal" title="Button"/>
                     <connections>

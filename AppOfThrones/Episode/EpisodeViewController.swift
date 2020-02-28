@@ -135,7 +135,21 @@ class EpisodeViewController: UIViewController, UITableViewDelegate, UITableViewD
             cell.rateBlock = { () -> Void in
                 let rateViewController = RateViewController.init(withEpisode: ep)
                 let navigationController = UINavigationController.init(rootViewController: rateViewController)
+                
+                let leftButton = UIButton.init(frame: CGRect.init(x: 0, y: 0, width: 30, height: 30))
+                
+                leftButton.setImage(UIImage.init(systemName: "xmark.circle.fill"), for: .normal)
+                
+                leftButton.tintColor = .orange
+                
+                leftButton.addTarget(rateViewController.self, action: #selector(rateViewController.close), for: .touchUpInside)
+                
+                let leftBarItem = UIBarButtonItem.init(customView: leftButton)
+                
+                rateViewController.navigationItem.leftBarButtonItem = leftBarItem
+                
                 navigationController.title = ep.name ?? "Rate"
+                
                 rateViewController.delegate = self
                 self.present(navigationController, animated: true, completion: nil)
             }

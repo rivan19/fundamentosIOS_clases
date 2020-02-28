@@ -8,7 +8,8 @@
 
 import UIKit
 
-/*class MyCustomHeader: UITableViewHeaderFooterView {
+/*
+class MyCustomHeader: UITableViewHeaderFooterView {
     let title = UILabel()
 
     override init(reuseIdentifier: String?) {
@@ -33,8 +34,8 @@ import UIKit
         contentView.addSubview(title)
 
     }
-}*/
-
+}
+*/
 
 class FavoriteViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, RateViewCellDelegate, FavoriteDelegate {
     
@@ -163,6 +164,19 @@ class FavoriteViewController: UIViewController, UITableViewDelegate, UITableView
                 cell.rateBlock = { () -> Void in
                     let rateViewController = RateViewController.init(withEpisode: ep)
                     let navigationController = UINavigationController.init(rootViewController: rateViewController)
+                    
+                    let leftButton = UIButton.init(frame: CGRect.init(x: 0, y: 0, width: 30, height: 30))
+                    
+                    leftButton.setImage(UIImage.init(systemName: "xmark.circle.fill"), for: .normal)
+                    
+                    leftButton.tintColor = .orange
+                    
+                    leftButton.addTarget(rateViewController.self, action: #selector(rateViewController.close), for: .touchUpInside)
+                    
+                    let leftBarItem = UIBarButtonItem.init(customView: leftButton)
+                    
+                    rateViewController.navigationItem.leftBarButtonItem = leftBarItem
+                    
                     navigationController.title = ep.name ?? "Rate"
                     rateViewController.delegate = self
                     self.present(navigationController, animated: true, completion: nil)
@@ -193,7 +207,7 @@ class FavoriteViewController: UIViewController, UITableViewDelegate, UITableView
         }
         else if (indexPath.section == 1)
         {
-            return 123
+            return 135
         }
         
         fatalError("Error: heightForRowAt")
@@ -207,24 +221,30 @@ class FavoriteViewController: UIViewController, UITableViewDelegate, UITableView
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
-    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return 10.0
-    }
     
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
-        return sections[section]
-    }
+        let vista = UIView.init(frame: CGRect.init(x: 0, y: 0, width: 450, height: 30))
+        
+        vista.layer.cornerRadius = 3.0
+        vista.layer.borderWidth = 1.0
+        vista.layer.borderColor = UIColor.white.withAlphaComponent(0.2).cgColor
+        
+        let title = UILabel.init(frame: CGRect.init(x: 10, y: 0, width: 200, height: 30))
+        
+        title.font = UIFont.init(name: "Verdana", size: 16.0)
+        
+        title.text = sections[section]
+        
+        vista.backgroundColor = .darkGray
+        
+        title.textColor = .white
+        
+        vista.addSubview(title)
+        
+        return vista
     
-    /*func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        
-        let view = tableView.dequeueReusableHeaderFooterView(withIdentifier:
-                    "sectionHeader") as! MyCustomHeader
-        
-        view.title.text = sections[section]
-
-        return view
-    }*/
+    }
     
     func tableView(_ tableView: UITableView, didHighlightRowAt indexPath: IndexPath) {
         if (indexPath.section == 1)

@@ -58,7 +58,7 @@ class CastViewController: UIViewController, UITableViewDelegate, UITableViewData
     // MARK: - UITableViewDelegate
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 148
+        return 135
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
