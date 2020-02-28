@@ -50,7 +50,7 @@ class EpisodeTableViewCell: UITableViewCell {
             delegate?.didFavoriteChanged()
             
             let noteName = Notification.Name(rawValue: "DidFavoritesUpdated")
-            NotificationCenter.default.removeObserver(self, name: noteName, object: nil)
+            NotificationCenter.default.post(name: noteName, object: nil)
         }
     }
     

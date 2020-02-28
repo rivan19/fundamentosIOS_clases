@@ -52,6 +52,9 @@ class CastTableViewCell: UITableViewCell {
                 DataController.shared.addFavorite(cast)
             }
             
+            let noteName = Notification.Name(rawValue: "DidFavoritesUpdated")
+            NotificationCenter.default.post(name: noteName, object: nil)
+            
             delegate?.didFavoriteChanged()
         }
     }

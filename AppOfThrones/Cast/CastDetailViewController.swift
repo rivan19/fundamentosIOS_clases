@@ -47,6 +47,9 @@ class CastDetailViewController: UIViewController, UITableViewDelegate, UITableVi
             sender.setImage(UIImage(systemName: DataController.shared.getImageHeart(cast)), for: .normal)
         }
         
+        let noteName = Notification.Name(rawValue: "DidFavoritesUpdated")
+        NotificationCenter.default.post(name: noteName, object: nil)
+        
         delegate?.didFavoriteChanged()
     }
     

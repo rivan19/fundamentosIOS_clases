@@ -8,11 +8,40 @@
 
 import UIKit
 
+/*class MyCustomHeader: UITableViewHeaderFooterView {
+    let title = UILabel()
+
+    override init(reuseIdentifier: String?) {
+        super.init(reuseIdentifier: reuseIdentifier)
+        configureContents()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    func configureContents() {
+        
+        title.layer.bounds = CGRect.init(x: 0, y: 0, width: 300, height: 50)
+        //title.translatesAutoresizingMaskIntoConstraints = false
+        
+        title.font = UIFont.italicSystemFont(ofSize: 18.0)
+        
+        //title.textColor = .white
+        title.tintColor = .white
+
+        contentView.addSubview(title)
+
+    }
+}*/
+
+
 class FavoriteViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, RateViewCellDelegate, FavoriteDelegate {
     
     @IBOutlet weak var favoritesTableView: UITableView!
     private var episodes : [Episode] = []
     private var casts : [Cast] = []
+    private let sections: [String] = ["Episodes", "Cast"]
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
@@ -51,6 +80,9 @@ class FavoriteViewController: UIViewController, UITableViewDelegate, UITableView
         let nibCast = UINib.init(nibName: "CastTableViewCell", bundle: nil)
         favoritesTableView.register(nibCast, forCellReuseIdentifier: "CastTableViewCell")
         
+        //favoritesTableView.register(MyCustomHeader.self, forHeaderFooterViewReuseIdentifier: "sectionHeader")
+        
+        
         favoritesTableView.delegate = self
         favoritesTableView.dataSource = self
     }
@@ -71,7 +103,8 @@ class FavoriteViewController: UIViewController, UITableViewDelegate, UITableView
             fatalError("Error: numberOfRowsInSection")
         }
     
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    /*func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        
         if (section == 0)
         {
             return "Episode"
@@ -81,7 +114,7 @@ class FavoriteViewController: UIViewController, UITableViewDelegate, UITableView
         }
         
         fatalError("Error: titleForHeaderInSection")
-    }
+    }*/
         
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
@@ -156,11 +189,11 @@ class FavoriteViewController: UIViewController, UITableViewDelegate, UITableView
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if (indexPath.section == 0)
         {
-            return 200
+            return 123
         }
         else if (indexPath.section == 1)
         {
-            return 200
+            return 123
         }
         
         fatalError("Error: heightForRowAt")
@@ -170,45 +203,62 @@ class FavoriteViewController: UIViewController, UITableViewDelegate, UITableView
         return true
     }
     
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let tableViewHeader = UITableViewHeaderFooterView.init(frame: CGRect.init(x: 0, y: 0, width: 50, height: 30))
-        
-        tableViewHeader.backgroundColor = .orange
-        tableViewHeader.tintColor = .white
-        
-        return tableViewHeader
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 10.0
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        
+        return sections[section]
+    }
+    
+    /*func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        
+        let view = tableView.dequeueReusableHeaderFooterView(withIdentifier:
+                    "sectionHeader") as! MyCustomHeader
+        
+        view.title.text = sections[section]
+
+        return view
+    }*/
+    
     func tableView(_ tableView: UITableView, didHighlightRowAt indexPath: IndexPath) {
-        
-        let cst = self.casts[indexPath.row]
-        
-        let castViewDetail = CastDetailViewController.init(cst)
-        castViewDetail.delegate = self
-        
-        let navigationCastViewDetail = UINavigationController.init(rootViewController: castViewDetail)
-        
-        let rightButton = UIButton.init(frame: CGRect.init(x: 0, y: 0, width: 30, height: 30))
-        let leftButton = UIButton.init(frame: CGRect.init(x: 0, y: 0, width: 30, height: 30))
-        
-        castViewDetail.title = cst.fullname
+        if (indexPath.section == 1)
+        {
+            let cst = self.casts[indexPath.row]
             
-        rightButton.setImage(UIImage.init(systemName: DataController.shared.getImageHeart(cst)), for: .normal)
-        leftButton.setImage(UIImage.init(systemName: "xmark.circle.fill"), for: .normal)
-        
-        rightButton.tintColor = .red
-        leftButton.tintColor = .orange
-        
-        rightButton.addTarget(castViewDetail.self, action: #selector(castViewDetail.heartButtonAction), for: .touchUpInside)
-        leftButton.addTarget(castViewDetail.self, action: #selector(castViewDetail.close), for: .touchUpInside)
-        
-        let rightBarItem = UIBarButtonItem.init(customView: rightButton)
-        let leftBarItem = UIBarButtonItem.init(customView: leftButton)
-        
-        castViewDetail.navigationItem.rightBarButtonItem = rightBarItem
-        castViewDetail.navigationItem.leftBarButtonItem = leftBarItem
-        
-        self.present(navigationCastViewDetail, animated: true, completion: nil)
-        
+            let castViewDetail = CastDetailViewController.init(cst)
+            castViewDetail.delegate = self
+            
+            let navigationCastViewDetail = UINavigationController.init(rootViewController: castViewDetail)
+            
+            let rightButton = UIButton.init(frame: CGRect.init(x: 0, y: 0, width: 30, height: 30))
+            let leftButton = UIButton.init(frame: CGRect.init(x: 0, y: 0, width: 30, height: 30))
+            
+            castViewDetail.title = cst.fullname
+                
+            rightButton.setImage(UIImage.init(systemName: DataController.shared.getImageHeart(cst)), for: .normal)
+            leftButton.setImage(UIImage.init(systemName: "xmark.circle.fill"), for: .normal)
+            
+            rightButton.tintColor = .red
+            leftButton.tintColor = .orange
+            
+            rightButton.addTarget(castViewDetail.self, action: #selector(castViewDetail.heartButtonAction), for: .touchUpInside)
+            leftButton.addTarget(castViewDetail.self, action: #selector(castViewDetail.close), for: .touchUpInside)
+            
+            let rightBarItem = UIBarButtonItem.init(customView: rightButton)
+            let leftBarItem = UIBarButtonItem.init(customView: leftButton)
+            
+            castViewDetail.navigationItem.rightBarButtonItem = rightBarItem
+            castViewDetail.navigationItem.leftBarButtonItem = leftBarItem
+            
+            self.present(navigationCastViewDetail, animated: true, completion: nil)
+
+        }
+                
     }
 }
