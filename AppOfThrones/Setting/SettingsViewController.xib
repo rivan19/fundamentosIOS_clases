@@ -25,17 +25,33 @@
                     </constraints>
                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <state key="normal" title="Button"/>
+                    <state key="normal" title="Reset Favorite"/>
                     <connections>
                         <action selector="cleanFavorite:" destination="-1" eventType="touchUpInside" id="FX2-Ix-QwZ"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="79f-oM-xog">
+                    <rect key="frame" x="20" y="514" width="374" height="77"/>
+                    <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="77" id="ytU-U1-Eob"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <state key="normal" title="Reset Rating"/>
+                    <connections>
+                        <action selector="resetRating:" destination="-1" eventType="touchUpInside" id="F5i-2q-R5o"/>
                     </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
             <constraints>
                 <constraint firstItem="DMR-B5-h3D" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="3OU-k8-DIp"/>
+                <constraint firstItem="79f-oM-xog" firstAttribute="top" secondItem="DMR-B5-h3D" secondAttribute="bottom" constant="27.5" id="DuC-kY-Ycd"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="79f-oM-xog" secondAttribute="trailing" constant="20" id="FVO-LE-glL"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="DMR-B5-h3D" secondAttribute="trailing" constant="20" id="dJa-Jv-eqF"/>
                 <constraint firstItem="DMR-B5-h3D" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="dRC-uH-qd5"/>
+                <constraint firstItem="79f-oM-xog" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="fGm-vl-LcK"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <point key="canvasLocation" x="137.68115942028987" y="152.67857142857142"/>

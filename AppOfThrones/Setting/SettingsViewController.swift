@@ -22,4 +22,12 @@ class SettingsViewController: UIViewController {
         let noteName = Notification.Name(rawValue: "DidFavoritesUpdated")
         NotificationCenter.default.post(name: noteName, object: nil)
     }
+    
+    @IBAction func resetRating(_ sender: Any) {
+        DataController.shared.cleanRating()
+        
+        let rateName = Notification.Name(rawValue: "DidRateUpdated")
+        NotificationCenter.default.post(name: rateName, object: nil)
+    }
+    
 }

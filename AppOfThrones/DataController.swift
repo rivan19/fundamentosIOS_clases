@@ -167,6 +167,10 @@ class DataController {
         return filtered.first
     }
     
+    func cleanRating() {
+        self.rating = []
+    }
+    
     // MARK: - SetupData
     
     func setupDataEpisode(_ seasonNumber: Int) -> [Episode]?{

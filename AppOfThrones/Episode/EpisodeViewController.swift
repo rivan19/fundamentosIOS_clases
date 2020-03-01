@@ -33,6 +33,9 @@ class EpisodeViewController: UIViewController, UITableViewDelegate, UITableViewD
     deinit {
         let noteName = Notification.Name(rawValue: "DidFavoritesUpdated")
         NotificationCenter.default.removeObserver(self, name: noteName, object: nil)
+        
+        let rateName = Notification.Name(rawValue: "DidRateUpdated")
+        NotificationCenter.default.removeObserver(self, name: rateName, object: nil)
     }
     
     func setupData(_ seasonNumber: Int){
