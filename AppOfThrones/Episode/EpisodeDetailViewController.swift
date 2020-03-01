@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EpisodeDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class EpisodeDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, RightButtonItemDelegate, LeftButtonItemDelegate {
     
     private var episode: Episode?
     var delegate: FavoriteDelegate?
@@ -80,6 +80,7 @@ class EpisodeDetailViewController: UIViewController, UITableViewDelegate, UITabl
             if let cell = tableView.dequeueReusableCell(withIdentifier: "EpisodeDetailTableViewCell", for: indexPath) as? EpisodeDetailTableViewCell{
                 if let ep = episode {
                     cell.dateLabel.text = ep.date
+                    cell.titleLabel.text = ep.name
                     cell.episodeLabel.text = "\(ep.episode)"
                     cell.seasonLabel.text = "\(ep.season)"
                     cell.overviewTextView.text = ep.overview

@@ -33,6 +33,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         favoriteViewController.tabBarItem = UITabBarItem.init(title: "Favorites", image: UIImage.init(systemName: "heart"), tag: 3)
         favoriteViewController.tabBarItem.selectedImage = UIImage.init(systemName: "heart.fill")
         
+        favoriteViewController.title = "Favorites"
+        
         settingsViewController.tabBarItem = UITabBarItem.init(title: "Settings", image: UIImage.init(systemName: "gear"), tag: 4)
         
         

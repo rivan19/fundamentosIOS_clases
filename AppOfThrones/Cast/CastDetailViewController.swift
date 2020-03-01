@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CastDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class CastDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, RightButtonItemDelegate, LeftButtonItemDelegate {
     private var cast: Cast?
     var delegate: FavoriteDelegate?
     @IBOutlet weak var tableCastDetail: UITableView!
@@ -53,7 +53,7 @@ class CastDetailViewController: UIViewController, UITableViewDelegate, UITableVi
         delegate?.didFavoriteChanged()
     }
     
-    @objc func close(_ sender: UIButton) -> Void {
+    @objc func closeViewController(_ sender: Any) -> Void {
         self.dismiss(animated: true, completion: nil)
     }
     
@@ -82,7 +82,7 @@ class CastDetailViewController: UIViewController, UITableViewDelegate, UITableVi
             if let cell = tableView.dequeueReusableCell(withIdentifier: "CastDetailTableViewCell", for: indexPath) as? CastDetailTableViewCell{
                 if let cst = cast {
                     cell.roleLabel.text = cst.role
-                    if let episode = cst.episode {
+                    if let episode = cst.episodes {
                         cell.birthLabel.text = "\(episode)"
                     } else {
                         cell.birthLabel.text = ""

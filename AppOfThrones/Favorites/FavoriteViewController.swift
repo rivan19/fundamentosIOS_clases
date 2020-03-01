@@ -8,41 +8,13 @@
 
 import UIKit
 
-/*
-class MyCustomHeader: UITableViewHeaderFooterView {
-    let title = UILabel()
-
-    override init(reuseIdentifier: String?) {
-        super.init(reuseIdentifier: reuseIdentifier)
-        configureContents()
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    func configureContents() {
-        
-        title.layer.bounds = CGRect.init(x: 0, y: 0, width: 300, height: 50)
-        //title.translatesAutoresizingMaskIntoConstraints = false
-        
-        title.font = UIFont.italicSystemFont(ofSize: 18.0)
-        
-        //title.textColor = .white
-        title.tintColor = .white
-
-        contentView.addSubview(title)
-
-    }
-}
-*/
-
 class FavoriteViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, RateViewCellDelegate, FavoriteDelegate {
     
     @IBOutlet weak var favoritesTableView: UITableView!
     private var episodes : [Episode] = []
     private var casts : [Cast] = []
-    private let sections: [String] = ["Episodes", "Cast"]
+    private var houses: [House] = []
+    private let sections: [String] = ["Episodes", "Cast", "House"]
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
@@ -54,7 +26,6 @@ class FavoriteViewController: UIViewController, UITableViewDelegate, UITableView
         super.viewDidLoad()
         
         setupUI()
-        
     }
     
     func didRateChanged() {
@@ -62,16 +33,15 @@ class FavoriteViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     @objc func didFavoriteChanged() {
-        //self.favoritesTableView.reloadData()
         setupDataFavorite()
     }
     
     func setupDataFavorite() {
         episodes = DataController.shared.episodeFavorite ?? []
         casts = DataController.shared.castsFavorite ?? []
+        houses = DataController.shared.houseFavorite ?? []
         
         favoritesTableView.reloadData()
-        
     }
     
     func setupUI() {
@@ -81,8 +51,8 @@ class FavoriteViewController: UIViewController, UITableViewDelegate, UITableView
         let nibCast = UINib.init(nibName: "CastTableViewCell", bundle: nil)
         favoritesTableView.register(nibCast, forCellReuseIdentifier: "CastTableViewCell")
         
-        //favoritesTableView.register(MyCustomHeader.self, forHeaderFooterViewReuseIdentifier: "sectionHeader")
-        
+        let nibHouse = UINib.init(nibName: "HouseTableViewCell", bundle: nil)
+        favoritesTableView.register(nibHouse, forCellReuseIdentifier: "HouseTableViewCell")
         
         favoritesTableView.delegate = self
         favoritesTableView.dataSource = self
@@ -91,31 +61,21 @@ class FavoriteViewController: UIViewController, UITableViewDelegate, UITableView
     // MARK: -UITableViewDataSource
 
     func numberOfSections(in tableView: UITableView) -> Int {
-            return 2
+            return 3
+    }
+        
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        if (section == 0){
+            return episodes.count
+        }else if (section == 1){
+            return casts.count
+        }else if (section == 2){
+            return houses.count
         }
         
-        func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-            if (section == 0)
-            {
-                return episodes.count
-            }else if (section == 1) {
-                return casts.count
-            }
-            fatalError("Error: numberOfRowsInSection")
-        }
-    
-    /*func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        
-        if (section == 0)
-        {
-            return "Episode"
-        }
-        else if (section == 1) {
-            return "Cast"
-        }
-        
-        fatalError("Error: titleForHeaderInSection")
-    }*/
+        fatalError("Error: numberOfRowsInSection")
+    }
         
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
@@ -128,32 +88,17 @@ class FavoriteViewController: UIViewController, UITableViewDelegate, UITableView
                 
                 cell.selectCell = { () -> Void in
                     
-                    let heartImageNamed = DataController.shared.getImageHeart(ep)
-                    
-                    let rightButton = UIButton.init(frame: CGRect.init(x: 0, y: 0, width: 30, height: 30))
-                    rightButton.setImage(UIImage.init(systemName: heartImageNamed), for: .normal)
-                    rightButton.tintColor = .red
-                    
-                    let leftButton = UIButton.init(frame: CGRect.init(x: 0, y: 0, width: 30, height: 30))
-                    leftButton.setImage(UIImage(systemName: "xmark.circle.fill"), for: .normal)
-                    leftButton.tintColor = .orange
-                    
                     let episodeDetailViewController = EpisodeDetailViewController.init(withEpisode: ep)
                     
                     let navigationDetailController = UINavigationController.init(rootViewController: episodeDetailViewController)
                     
                     episodeDetailViewController.title = ep.name ?? ""
                     
-                    rightButton.addTarget(episodeDetailViewController.self, action: #selector(episodeDetailViewController.heartButtonAction), for: .touchUpInside)
+                    let rightButtonBar = DataController.shared.getRightBarButtonItem(ep, view: episodeDetailViewController)
                     
-                    let rightButtonBar = UIBarButtonItem.init(customView: rightButton)
-                    
-                    leftButton.addTarget(episodeDetailViewController.self, action: #selector(episodeDetailViewController.closeViewController), for: .touchUpInside)
-                    
-                    let leftButtonBar = UIBarButtonItem.init(customView: leftButton)
+                    let leftButtonBar = DataController.shared.getLeftBarButtonItem(ep, view: episodeDetailViewController, image: "xmark.circle.fill")
                     
                     episodeDetailViewController.navigationItem.rightBarButtonItem = rightButtonBar
-                    
                     episodeDetailViewController.navigationItem.leftBarButtonItem = leftButtonBar
                     
                     episodeDetailViewController.delegate = self
@@ -165,15 +110,7 @@ class FavoriteViewController: UIViewController, UITableViewDelegate, UITableView
                     let rateViewController = RateViewController.init(withEpisode: ep)
                     let navigationController = UINavigationController.init(rootViewController: rateViewController)
                     
-                    let leftButton = UIButton.init(frame: CGRect.init(x: 0, y: 0, width: 30, height: 30))
-                    
-                    leftButton.setImage(UIImage.init(systemName: "xmark.circle.fill"), for: .normal)
-                    
-                    leftButton.tintColor = .orange
-                    
-                    leftButton.addTarget(rateViewController.self, action: #selector(rateViewController.close), for: .touchUpInside)
-                    
-                    let leftBarItem = UIBarButtonItem.init(customView: leftButton)
+                    let leftBarItem = DataController.shared.getLeftBarButtonItem(ep, view: rateViewController, image: "xmark.circle.fill")
                     
                     rateViewController.navigationItem.leftBarButtonItem = leftBarItem
                     
@@ -190,6 +127,52 @@ class FavoriteViewController: UIViewController, UITableViewDelegate, UITableView
                 let actor = casts[indexPath.row]
                 cell.setCast(actor)
                 cell.delegate = self
+                
+                cell.selectCell = {() -> Void in
+                    let castViewDetail = CastDetailViewController.init(actor)
+                    castViewDetail.delegate = self
+                    
+                    let navigationCastViewDetail = UINavigationController.init(rootViewController: castViewDetail)
+                    
+                    let rightButtonBar = DataController.shared.getRightBarButtonItem(actor, view: castViewDetail)
+                     
+                     let leftButtonBar = DataController.shared.getLeftBarButtonItem(actor, view: castViewDetail, image: "xmark.circle.fill")
+                    
+                    castViewDetail.title = actor.fullname
+                    
+                    castViewDetail.navigationItem.rightBarButtonItem = rightButtonBar
+                    castViewDetail.navigationItem.leftBarButtonItem = leftButtonBar
+                    
+                    self.present(navigationCastViewDetail, animated: true, completion: nil)
+                }
+                
+                return cell
+            }
+        }
+        else if (indexPath.section == 2) {
+            if let cell = tableView.dequeueReusableCell(withIdentifier: "HouseTableViewCell", for: indexPath) as? HouseTableViewCell {
+                let house = houses[indexPath.row]
+                cell.setHouse(house)
+                cell.delegate = self
+                
+                cell.selectCell = { () -> Void in
+                    
+                    let houseViewController = HouseDetailViewController.init(house: house)
+                    houseViewController.delegate = self
+                    
+                    houseViewController.title = house.name ?? ""
+                    
+                    let houseNavigationViewController = UINavigationController.init(rootViewController: houseViewController)
+                    
+                    let leftBarButton = DataController.shared.getLeftBarButtonItem(house, view: houseViewController, image: "xmark.circle.fill")
+                    
+                    let rightBarButton = DataController.shared.getRightBarButtonItem(house, view: houseViewController)
+                    
+                    houseViewController.navigationItem.leftBarButtonItem = leftBarButton
+                    houseViewController.navigationItem.rightBarButtonItem = rightBarButton
+                    
+                    self.present(houseNavigationViewController, animated: true, completion: nil)
+                }
                 return cell
             }
         }
@@ -209,34 +192,30 @@ class FavoriteViewController: UIViewController, UITableViewDelegate, UITableView
         {
             return 135
         }
+        else if (indexPath.section == 2){
+            return 135
+        }
         
         fatalError("Error: heightForRowAt")
     }
         
     func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
-        return true
+        return false
     }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-    }
-    
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
-        let vista = UIView.init(frame: CGRect.init(x: 0, y: 0, width: 450, height: 30))
+        let vista = UIView.init()
         
         vista.layer.cornerRadius = 3.0
         vista.layer.borderWidth = 1.0
         vista.layer.borderColor = UIColor.white.withAlphaComponent(0.2).cgColor
         
         let title = UILabel.init(frame: CGRect.init(x: 10, y: 0, width: 200, height: 30))
-        
-        title.font = UIFont.init(name: "Verdana", size: 16.0)
-        
+        title.font = UIFont.init(name: "Verdana", size: 15.0)
         title.text = sections[section]
         
-        vista.backgroundColor = .darkGray
+        vista.backgroundColor = .black
         
         title.textColor = .white
         
@@ -245,40 +224,5 @@ class FavoriteViewController: UIViewController, UITableViewDelegate, UITableView
         return vista
     
     }
-    
-    func tableView(_ tableView: UITableView, didHighlightRowAt indexPath: IndexPath) {
-        if (indexPath.section == 1)
-        {
-            let cst = self.casts[indexPath.row]
-            
-            let castViewDetail = CastDetailViewController.init(cst)
-            castViewDetail.delegate = self
-            
-            let navigationCastViewDetail = UINavigationController.init(rootViewController: castViewDetail)
-            
-            let rightButton = UIButton.init(frame: CGRect.init(x: 0, y: 0, width: 30, height: 30))
-            let leftButton = UIButton.init(frame: CGRect.init(x: 0, y: 0, width: 30, height: 30))
-            
-            castViewDetail.title = cst.fullname
-                
-            rightButton.setImage(UIImage.init(systemName: DataController.shared.getImageHeart(cst)), for: .normal)
-            leftButton.setImage(UIImage.init(systemName: "xmark.circle.fill"), for: .normal)
-            
-            rightButton.tintColor = .red
-            leftButton.tintColor = .orange
-            
-            rightButton.addTarget(castViewDetail.self, action: #selector(castViewDetail.heartButtonAction), for: .touchUpInside)
-            leftButton.addTarget(castViewDetail.self, action: #selector(castViewDetail.close), for: .touchUpInside)
-            
-            let rightBarItem = UIBarButtonItem.init(customView: rightButton)
-            let leftBarItem = UIBarButtonItem.init(customView: leftButton)
-            
-            castViewDetail.navigationItem.rightBarButtonItem = rightBarItem
-            castViewDetail.navigationItem.leftBarButtonItem = leftBarItem
-            
-            self.present(navigationCastViewDetail, animated: true, completion: nil)
 
-        }
-                
-    }
 }

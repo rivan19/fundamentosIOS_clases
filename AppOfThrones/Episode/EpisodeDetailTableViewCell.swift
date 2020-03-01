@@ -13,6 +13,7 @@ class EpisodeDetailTableViewCell: UITableViewCell{
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var seasonLabel: UILabel!
     @IBOutlet weak var episodeLabel: UILabel!
+    @IBOutlet weak var titleLabel: UITextView!
     
     @IBOutlet weak var overviewTextView: UITextView!
     

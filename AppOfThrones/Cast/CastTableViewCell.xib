@@ -32,9 +32,9 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uLg-s7-FAt">
-                        <rect key="frame" x="138" y="56" width="256" height="21"/>
+                        <rect key="frame" x="138" y="56" width="215" height="17"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="21" id="zMU-bq-J5s"/>
+                            <constraint firstAttribute="height" constant="17" id="G5V-dv-dwZ"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
@@ -64,17 +64,17 @@
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="pgh-Ma-Y5P" secondAttribute="trailing" id="0kY-aB-nNa"/>
                     <constraint firstAttribute="trailing" secondItem="rtV-e7-j9b" secondAttribute="trailing" id="3vx-Yk-VMf"/>
+                    <constraint firstItem="uLg-s7-FAt" firstAttribute="leading" secondItem="CJi-90-VY6" secondAttribute="trailing" constant="8" id="44V-bI-DPS"/>
                     <constraint firstItem="pgh-Ma-Y5P" firstAttribute="top" secondItem="NYB-2N-eR1" secondAttribute="top" constant="27" id="FaP-gn-j6j"/>
+                    <constraint firstItem="rtV-e7-j9b" firstAttribute="leading" secondItem="uLg-s7-FAt" secondAttribute="trailing" constant="8" id="JSZ-BN-tLn"/>
+                    <constraint firstItem="uLg-s7-FAt" firstAttribute="top" secondItem="pgh-Ma-Y5P" secondAttribute="bottom" constant="8" id="S5c-uh-Pfy"/>
                     <constraint firstItem="pW0-e7-JOr" firstAttribute="trailing" secondItem="NYB-2N-eR1" secondAttribute="trailingMargin" id="T7I-lY-ldf"/>
-                    <constraint firstItem="uLg-s7-FAt" firstAttribute="leading" secondItem="CJi-90-VY6" secondAttribute="trailing" constant="8" id="UKV-HE-OVB"/>
                     <constraint firstItem="pgh-Ma-Y5P" firstAttribute="leading" secondItem="CJi-90-VY6" secondAttribute="trailing" constant="8" id="YhG-M2-SUI"/>
-                    <constraint firstItem="uLg-s7-FAt" firstAttribute="trailing" secondItem="NYB-2N-eR1" secondAttribute="trailingMargin" id="iOG-Yn-ktg"/>
                     <constraint firstItem="pW0-e7-JOr" firstAttribute="leading" secondItem="CJi-90-VY6" secondAttribute="trailing" constant="8" id="kL7-kU-oPL"/>
                     <constraint firstItem="CJi-90-VY6" firstAttribute="leading" secondItem="NYB-2N-eR1" secondAttribute="leading" constant="20" id="oM5-T7-2bo"/>
                     <constraint firstAttribute="bottom" secondItem="rtV-e7-j9b" secondAttribute="bottom" constant="11" id="omA-Xf-KVK"/>
                     <constraint firstItem="rtV-e7-j9b" firstAttribute="top" secondItem="NYB-2N-eR1" secondAttribute="top" id="rKb-VJ-whD"/>
                     <constraint firstItem="CJi-90-VY6" firstAttribute="centerY" secondItem="NYB-2N-eR1" secondAttribute="centerY" id="rmG-iO-l5R"/>
-                    <constraint firstItem="uLg-s7-FAt" firstAttribute="top" secondItem="pgh-Ma-Y5P" secondAttribute="bottom" constant="8" id="rmw-7C-ij5"/>
                     <constraint firstAttribute="bottomMargin" secondItem="pW0-e7-JOr" secondAttribute="bottom" constant="16" id="vKr-le-Z5Q"/>
                 </constraints>
             </tableViewCellContentView>

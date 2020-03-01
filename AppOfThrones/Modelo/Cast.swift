@@ -22,7 +22,7 @@ struct Cast: Identifiable, Codable, CustomStringConvertible, Equatable {
         avatar: \(avatar ?? "")
         fullname: \(fullname ?? "")
         role: \(role ?? "")
-        episode: \(String(describing: episode))
+        episode: \(String(describing: episodes))
         birth: \(birth ?? "")
         placeBirth: \(placeBirth ?? "")
         """
@@ -32,7 +32,7 @@ struct Cast: Identifiable, Codable, CustomStringConvertible, Equatable {
     var avatar: String?
     var fullname: String?
     var role: String?
-    var episode: Int?
+    var episodes: Int?
     var birth: String?
     var placeBirth: String?
     

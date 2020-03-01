@@ -19,7 +19,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleAspectFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hGq-hZ-34A">
-                    <rect key="frame" x="20" y="44" width="374" height="818"/>
+                    <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                     <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                     <color key="separatorColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                     <color key="sectionIndexColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
@@ -30,8 +30,8 @@
             <constraints>
                 <constraint firstItem="hGq-hZ-34A" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="49C-Zd-4ib"/>
                 <constraint firstItem="hGq-hZ-34A" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="9Xr-Ri-EEJ"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="hGq-hZ-34A" secondAttribute="trailing" constant="20" id="UbQ-hp-hjk"/>
-                <constraint firstItem="hGq-hZ-34A" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="yXB-eN-Zya"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="hGq-hZ-34A" secondAttribute="trailing" id="UbQ-hp-hjk"/>
+                <constraint firstItem="hGq-hZ-34A" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="yXB-eN-Zya"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <point key="canvasLocation" x="137.68115942028987" y="124.55357142857142"/>

@@ -8,8 +8,11 @@
 
 import UIKit
 
-class HouseDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class HouseDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, LeftButtonItemDelegate, RightButtonItemDelegate {
+    
     var house: House?
+    var delegate: FavoriteDelegate?
+    
     @IBOutlet weak var houseTableView: UITableView!
     
     override func viewDidLoad() {
@@ -37,7 +40,24 @@ class HouseDetailViewController: UIViewController, UITableViewDelegate, UITableV
         
     }
     
-    @objc func close(_ sender: UIButton) {
+    @objc func heartButtonAction(_ sender: UIButton) -> Void {
+        if let house = self.house {
+            if DataController.shared.isFavorite(house){
+                DataController.shared.removeFavorite(house)
+            } else {
+                DataController.shared.addFavorite(house)
+            }
+            
+            sender.setImage(UIImage(systemName: DataController.shared.getImageHeart(house)), for: .normal)
+        }
+        
+        let noteName = Notification.Name(rawValue: "DidFavoritesUpdated")
+        NotificationCenter.default.post(name: noteName, object: nil)
+        
+        delegate?.didFavoriteChanged()
+    }
+    
+    @objc func closeViewController(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
     

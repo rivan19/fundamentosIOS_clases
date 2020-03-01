@@ -19,6 +19,7 @@ class CastTableViewCell: UITableViewCell {
     
     private var cast: Cast?
     var delegate: FavoriteDelegate?
+    var selectCell: (() -> Void)?
     
     override func awakeFromNib() {
         avatar.layer.cornerRadius = 8.0
@@ -34,7 +35,7 @@ class CastTableViewCell: UITableViewCell {
         let heartImage = UIImage.init(systemName: heartImageNamed)
         self.heart.setImage(heartImage, for: .normal)
         
-        self.episodes.text = "\(cast.episode ?? 0) episodes"
+        self.episodes.text = "\(cast.episodes ?? 0) episodes"
         self.name.text = cast.fullname
         self.role.text = cast.role
         self.avatar.image = UIImage.init(named: cast.avatar ?? "")
@@ -57,5 +58,9 @@ class CastTableViewCell: UITableViewCell {
             
             delegate?.didFavoriteChanged()
         }
+    }
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.selectCell?()
     }
 }

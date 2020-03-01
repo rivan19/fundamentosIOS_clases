@@ -32,9 +32,11 @@ class EpisodeTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         //se ejecuta cuando se ha cogido la celda se instancia
         
-        thumb.layer.cornerRadius = 2.0
-        thumb.layer.borderColor = UIColor.white.withAlphaComponent(0.2).cgColor
+        thumb.layer.cornerRadius = 8.0
         thumb.layer.borderWidth = 1.0
+        
+        thumb.layer.borderColor = UIColor.white.withAlphaComponent(0.2).cgColor
+        
         rateButton.layer.cornerRadius = 4
         
     }

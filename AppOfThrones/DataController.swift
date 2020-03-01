@@ -6,11 +6,20 @@
 //  Copyright © 2020 Ivan Llopis Guardado. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 protocol FavoriteDelegate: class {
     func didFavoriteChanged()
 }
+
+@objc protocol RightButtonItemDelegate {
+    func heartButtonAction(_ sender: UIButton) -> Void;
+}
+
+@objc protocol LeftButtonItemDelegate {
+    func closeViewController(_ sender: Any);
+}
+
 
 protocol Identifiable {
     var id: Int {get}
@@ -26,9 +35,11 @@ class DataController {
     private var rating: [Rating] = []
     private var favorite: [Int] = []
     private var favoriteC: [Int] = []
+    private var favoriteH: [Int] = []
     private var houses: [House] = []
     private var casts: [Cast] = []
     private var episodes: [Episode] = []
+    private var episodes_sesion: [Int: [Episode]] = [:]
     
     var castsFavorite: [Cast]? {
         get {
@@ -41,9 +52,16 @@ class DataController {
         }
     }
     
+    var houseFavorite: [House]? {
+        get {
+            return self.setupDataHouseFavorite()
+        }
+    }
+    
     private enum Kind: String {
         case cast = "C"
         case episode = "E"
+        case house = "H"
         case other = "O"
     }
     
@@ -53,7 +71,11 @@ class DataController {
         }
         else if let _ = value as? Episode {
             return Kind.episode
-        } else {
+        }
+        else if let _ = value as? House {
+            return Kind.house
+        }
+        else {
             return Kind.other
         }
     }
@@ -69,6 +91,8 @@ class DataController {
             return favoriteC
         case .episode:
             return favorite
+        case .house:
+            return favoriteH
         default:
             return favorite
         }
@@ -85,6 +109,8 @@ class DataController {
                 favoriteC.append(value.id)
             case .episode:
                 favorite.append(value.id)
+            case .house:
+                favoriteH.append(value.id)
             default:
                 favorite.append(value.id)
             }
@@ -99,6 +125,8 @@ class DataController {
                     favoriteC.remove(at: index)
                 case .episode:
                     favorite.remove(at: index)
+                case .house:
+                    favoriteH.remove(at: index)
                 default:
                     favorite.remove(at: index)
                 }
@@ -112,6 +140,7 @@ class DataController {
     func cleanFavorite() {
         favorite = []
         favoriteC = []
+        favoriteH = []
     }
     
     // MARK: - Rating
@@ -146,6 +175,8 @@ class DataController {
                 let data = try Data.init(contentsOf: pathURL)
                 let decoder = JSONDecoder()
                 episodes = try decoder.decode([Episode].self, from: data)
+                
+                episodes_sesion[seasonNumber] = episodes
                 
                 return episodes
 
@@ -197,11 +228,65 @@ class DataController {
         }
     }
     
+    // MARK: - Get Favorite Data
+    
     func setupDataCastFavorites() -> [Cast]? {
         return casts.filter({favoriteC.contains($0.id)})
     }
     
+    func setupDataHouseFavorite() -> [House]? {
+        return houses.filter { (house) -> Bool in
+            return favoriteH.contains(house.id)
+        }
+    }
+    
     func setupDataEpisodeFavorites() -> [Episode]? {
-        return episodes.filter ({favorite.contains($0.id)})
+        
+        var episodes_all: [Episode] = []
+        
+        for (_, value) in episodes_sesion {
+            episodes_all += value
+        }
+        
+        episodes_all.sort { (ep1, ep2) -> Bool in
+            return (ep1.season, ep1.episode) < (ep2.season, ep2.episode)
+        }
+        return episodes_all.filter ({favorite.contains($0.id)})
+    }
+    
+    // MARK: - Refactor code. BarButtonItem
+    
+    func getRightBarButtonItem<T: Identifiable, S: RightButtonItemDelegate>(_ value: T, view: S) -> UIBarButtonItem{
+        let heartImageNamed = DataController.shared.getImageHeart(value)
+        
+        let rightButton = UIButton.init(frame: CGRect.init(x: 0, y: 0, width: 30, height: 30))
+        
+        rightButton.setImage(UIImage.init(systemName: heartImageNamed), for: .normal)
+        rightButton.tintColor = .red
+        
+        if view is UIViewController {
+            rightButton.addTarget(view.self, action: #selector(view.heartButtonAction), for: .touchUpInside)
+        }
+        
+        let rightButtonBar = UIBarButtonItem.init(customView: rightButton)
+        
+        return rightButtonBar
+        
+    }
+    
+    func getLeftBarButtonItem<T: Identifiable, S: LeftButtonItemDelegate>(_ value: T, view: S, image: String?) -> UIBarButtonItem{
+        
+        let leftButton = UIButton.init(frame: CGRect.init(x: 0, y: 0, width: 30, height: 30))
+        leftButton.setImage(UIImage(systemName: image ?? "xmark.circle.fill"), for: .normal)
+        leftButton.tintColor = .orange
+        
+        if view is UIViewController {
+            leftButton.addTarget(view.self, action: #selector(view.closeViewController), for: .touchUpInside)
+        }
+        
+        let leftButtonBar = UIBarButtonItem.init(customView: leftButton)
+        
+        return leftButtonBar
+        
     }
 }

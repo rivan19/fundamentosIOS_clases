@@ -12,7 +12,7 @@ protocol RateViewCellDelegate {
     func didRateChanged()
 }
 
-class RateViewController: UIViewController {
+class RateViewController: UIViewController, LeftButtonItemDelegate {
     
     @IBOutlet weak var rateLabel: UILabel!
     @IBOutlet weak var imageView: UIImageView!
@@ -64,7 +64,7 @@ class RateViewController: UIViewController {
     }
     
     
-    @IBAction func close(_ sender: Any) {
+    @IBAction func closeViewController(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
         //self.navigationController?.popViewController(animated: true)
     }

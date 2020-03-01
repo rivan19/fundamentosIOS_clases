@@ -8,16 +8,28 @@
 
 import UIKit
 
-class HouseViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class HouseViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, FavoriteDelegate {
+    
     @IBOutlet weak var tableView: UITableView!
     
     var houses: [House] = []
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        setupNotifications()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
         setupData()
         // Do any additional setup after loading the view.
+    }
+    
+    deinit {
+        let noteName = Notification.Name(rawValue: "DidFavoritesUpdated")
+        NotificationCenter.default.removeObserver(self, name: noteName, object: nil)
     }
 
     func setupUI(){
@@ -43,32 +55,6 @@ class HouseViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     
-    func tableView(_ tableView: UITableView, didHighlightRowAt indexPath: IndexPath) {
-        
-        let hs = houses[indexPath.row]
-        
-        let houseViewController = HouseDetailViewController.init(house: hs)
-        
-        houseViewController.title = hs.name ?? ""
-        
-        let houseNavigationViewController = UINavigationController.init(rootViewController: houseViewController)
-        
-        let leftButton = UIButton.init(frame: CGRect.init(x: 0, y: 0, width: 30, height: 30))
-        
-        leftButton.setImage(UIImage.init(systemName: "xmark.circle.fill"), for: .normal)
-        
-        leftButton.tintColor = .orange
-        
-        leftButton.addTarget(houseViewController.self, action: #selector(houseViewController.close), for: .touchUpInside)
-        
-        let leftBarButton = UIBarButtonItem.init(customView: leftButton)
-        
-        houseViewController.navigationItem.leftBarButtonItem = leftBarButton
-        
-        self.present(houseNavigationViewController, animated: true, completion: nil)
-    }
-    
-    
     // MARK: - UITableViewDataSource
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -83,10 +69,41 @@ class HouseViewController: UIViewController, UITableViewDelegate, UITableViewDat
         if let cell = tableView.dequeueReusableCell(withIdentifier: "HouseTableViewCell", for: indexPath) as? HouseTableViewCell {
             let house = houses[indexPath.row]
             cell.setHouse(house)
+            cell.delegate = self
+            
+            cell.selectCell = { () -> Void in
+                
+                let houseViewController = HouseDetailViewController.init(house: house)
+                
+                houseViewController.title = house.name ?? ""
+                
+                let houseNavigationViewController = UINavigationController.init(rootViewController: houseViewController)
+                
+                let leftBarButton = DataController.shared.getLeftBarButtonItem(house, view: houseViewController, image: "xmark.circle.fill")
+                
+                let rightBarButton = DataController.shared.getRightBarButtonItem(house, view: houseViewController)
+                
+                houseViewController.navigationItem.leftBarButtonItem = leftBarButton
+                houseViewController.navigationItem.rightBarButtonItem = rightBarButton
+                
+                self.present(houseNavigationViewController, animated: true, completion: nil)
+            }
+            
             return cell
         }
         
         fatalError("Could not create the Episode cell")
+    }
+    
+    @objc func didFavoriteChanged() {
+        self.tableView.reloadData()
+    }
+    
+    func setupNotifications() {
+        let noteName = Notification.Name(rawValue: "DidFavoritesUpdated")
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.didFavoriteChanged), name: noteName, object: nil)
+        
     }
 
 }

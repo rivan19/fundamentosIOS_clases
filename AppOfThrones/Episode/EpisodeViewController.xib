@@ -38,21 +38,18 @@
                     </connections>
                 </segmentedControl>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="9pZ-Qh-QIE">
-                    <rect key="frame" x="20" y="139" width="374" height="723"/>
+                    <rect key="frame" x="0.0" y="139" width="414" height="723"/>
                     <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="374" id="ksT-m1-FYS"/>
-                    </constraints>
                 </tableView>
             </subviews>
             <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
             <constraints>
                 <constraint firstItem="oh3-GC-hOr" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="LPf-hJ-vX4"/>
                 <constraint firstItem="9pZ-Qh-QIE" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="QIc-TO-3ZJ"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="9pZ-Qh-QIE" secondAttribute="trailing" constant="20" id="SOU-Fm-NuN"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="9pZ-Qh-QIE" secondAttribute="trailing" id="SOU-Fm-NuN"/>
                 <constraint firstItem="9pZ-Qh-QIE" firstAttribute="top" secondItem="oh3-GC-hOr" secondAttribute="bottom" constant="21" id="cd3-zQ-wqy"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="oh3-GC-hOr" secondAttribute="trailing" constant="20" id="k8V-6a-2sN"/>
-                <constraint firstItem="9pZ-Qh-QIE" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="mj0-ZU-Fcv"/>
+                <constraint firstItem="9pZ-Qh-QIE" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="mj0-ZU-Fcv"/>
                 <constraint firstItem="oh3-GC-hOr" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="44" id="mt5-do-kWL"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
